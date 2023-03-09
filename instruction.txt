@@ -1,0 +1,32 @@
+color scheme: 
+
+the header should contain
+"Logo"  "Catch Line/ Hook" "Contact Info"
+
+Directly below it we would have a search bar for searching through our existing Recipe API
+
+Below that we would have a "Featured Recipe" section that would be a random recipe from our API 
+if no inputed ingredients
+
+Then an ingredients div which would have search ingredients at the top
+and then followed by a horizontal swipe to the right to select what type of ingredients are found
+after selecting each ingredients the Featured recipe would be loaded into the recipes that include
+the ingredients chosen
+
+Main ingr   | Main ingr     | Main ingr     |
+            |               |               |
+            |               |               |
+            |               |               |   -->
+            |               |               |
+            |               |               |
+view more...|               |               |
+
+
+ pressing view more
+
+ Main ingr                                  |
+                                            |
+list all ingredients here                   |
+                                            |
+                                            |
+                                            |
