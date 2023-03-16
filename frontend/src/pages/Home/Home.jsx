@@ -1,19 +1,113 @@
 import React from 'react';
 import './Home.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class Home extends React.Component {
   render() {
     return (
-      <div className="wrap">
-        <div className="search">
-          <input type="text" className="searchTerm" placeholder="What are you looking for?" />
-          <button type="submit" className="searchButton">
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </div>
+    <div>
+      <div id="search__container">
+        <input id="search__input" type="text" placeholder="Search for recipes" />
+        <input type = "button" id = "shopping__list" value = "Shopping List"/>
       </div>
+      
+
+      <div id="recipe__container">
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+          
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+
+          <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+    </div>
+    </div>
     );
   }
 }
