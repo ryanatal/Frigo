@@ -1,0 +1,51 @@
+div#header{
+    /* #20639B #ED553B #EE6C4D #FB9B50*/
+    background-color: #006D5B;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 30px;
+}
+img#logo{
+    width: 100px;
+    height: 100px;
+}
+h1#title{
+    color: white;
+    font-family: 'Georgia';
+    text-align: center;
+}
+
+/* Styles for the "About Us" button */
+input#AboutUs {
+    background-color: #0f8e78;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-right: 20px;
+    font-family: 'Georgia';
+
+}
+  
+/* Styles for when the button is hovered over */
+input#AboutUs:hover {
+    background-color: #fff;
+    color: #006D5B;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Styles for when the button is clicked */
+input#AboutUs:active {
+    background-color: #ddd;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(1px);
+}
+  
