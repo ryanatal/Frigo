@@ -85,20 +85,24 @@ input#shopping__list:active {
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
     transform: translateY(1px);
 }
+
 #recipe__container {
     display: flex;
     overflow-x: auto;
-    margin-left: 200px;
+    margin-left: 50px;
     margin-right: 50px;
     padding: 20px 0;
   }
+  
   .recipe__card {
+    position: relative;
     width: 30%;
     margin-bottom: 30px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
+    position: relative;
   }
   
   .recipe__card:hover {
@@ -132,11 +136,13 @@ input#shopping__list:active {
     display: none;
   }
   
-  .recipe__image:hover .recipe__button {
+  .recipe__card:hover .recipe__button {
     display: block;
     position: absolute;
     bottom: 20px;
     right: 20px;
+    left: 20px;
+    margin: 0 auto;
     background-color: #fff;
     color: #333;
     border: 1px solid #333;
@@ -144,24 +150,6 @@ input#shopping__list:active {
     padding: 10px;
     font-size: 14px;
     cursor: pointer;
-  }
-  
-  
-  .recipe__button {
-    display: none;
-  }
-  
-  .recipe__image:hover .recipe__button {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
+    text-align: center;
   }
   
