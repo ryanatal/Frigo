@@ -7,7 +7,7 @@ div#header{
     flex-direction: row;
     border: 1px solid black;
     padding: 10px;
-    border-radius: 30px;
+
 }
 img#logo{
     width: 100px;
@@ -48,4 +48,3 @@ input#AboutUs:active {
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
     transform: translateY(1px);
 }
-  

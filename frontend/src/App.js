@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
+import Authentication from './pages/Authentication/Authentication';
 
 function App() {
   return (
