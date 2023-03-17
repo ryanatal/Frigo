@@ -86,18 +86,25 @@ input#shopping__list:active {
     transform: translateY(1px);
 }
 
+#slider {
+    overflow-x: scroll;
+    margin-left: 200px;;
+    margin-right: 200px;
+
+  }
+/* Styles for the recipe container */
 #recipe__container {
     display: flex;
-    overflow-x: auto;
     margin-left: 50px;
     margin-right: 50px;
     padding: 20px 0;
+    justify-content: center;
+    align-items: center; 
   }
   
+  /* Styles for the recipe card */
   .recipe__card {
-    position: relative;
-    width: 30%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -105,6 +112,7 @@ input#shopping__list:active {
     position: relative;
   }
   
+  /*this is the styling for the recipe cards when you hover over them*/
   .recipe__card:hover {
     transform: translateY(-10px);
   }
@@ -115,23 +123,25 @@ input#shopping__list:active {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
-  
-  .recipe__content {
-    padding: 20px;
-  }
-  
   .recipe__title {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    padding: 10px;
   }
   
   .recipe__description {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    padding: 20px;
+    
+
   }
+
   
+  .recipe__content {
+    padding: 15px;
+  }
   .recipe__button {
     display: none;
   }

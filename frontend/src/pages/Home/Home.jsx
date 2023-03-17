@@ -11,6 +11,7 @@ class Home extends React.Component {
       </div>
       
 
+      <div id="slider">
       <div id="recipe__container">
       <div class="recipe__card">
             <div class="recipe__image">
@@ -45,6 +46,26 @@ class Home extends React.Component {
             </div>
       </div>
 
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
+      <div class="recipe__card">
+            <div class="recipe__image">
+                <div class="recipe__button">View Recipe</div>
+            </div>
+
+            <div class="recipe__content">
+                <h2 class="recipe__title">Recipe Title</h2>
+                <p class="recipe__description">Short description of the recipe</p>
+            </div>
+      </div>
       <div class="recipe__card">
             <div class="recipe__image">
                 <div class="recipe__button">View Recipe</div>
@@ -96,6 +117,7 @@ class Home extends React.Component {
                 <p class="recipe__description">Short description of the recipe</p>
             </div>
       </div>
+
       <div class="recipe__card">
             <div class="recipe__image">
                 <div class="recipe__button">View Recipe</div>
@@ -105,6 +127,7 @@ class Home extends React.Component {
                 <h2 class="recipe__title">Recipe Title</h2>
                 <p class="recipe__description">Short description of the recipe</p>
             </div>
+      </div>
       </div>
     </div>
     </div>
