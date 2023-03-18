@@ -7,13 +7,13 @@ import Shopping from './pages/ShoppingList/Shopping';
 import Authentication from './pages/Authentication/Authentication';
 import SignUp from './pages/Authentication/Signup';
 import Login from './pages/Authentication/Login';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Login />
-      <SignUp />
+      <AboutUs />
     </div>
   );
 }
