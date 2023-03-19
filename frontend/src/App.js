@@ -8,12 +8,13 @@ import Authentication from './pages/Authentication/Authentication';
 import SignUp from './pages/Authentication/Signup';
 import Login from './pages/Authentication/Login';
 import AboutUs from './pages/AboutUs/AboutUs';
+import Ingredients from './pages/Ingredients/Ingredients';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <AboutUs />
+      <Ingredients />
     </div>
   );
 }
