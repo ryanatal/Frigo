@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <div id = "header">
         <img id = "logo" src = {logo} alt = "logo" />
-        <h1 id = "title">The Best App Ever</h1>
+        <h1 id = "title">Your Personal Recipe Finder</h1>
         <input type = "button" id = "AboutUs" value = "About Us"/>
       </div>
     );
