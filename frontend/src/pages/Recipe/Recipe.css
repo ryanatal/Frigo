@@ -7,7 +7,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 200px;
+    margin-left: 250px;
     padding-top: 60px;
     width: 65%;
   }
@@ -93,22 +93,25 @@ input#shopping__list:active {
   }
 /* Styles for the recipe container */
 #recipe__container {
-    display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding: 20px 0;
-    justify-content: center;
-    align-items: center; 
+  display: flex;
+  margin-right: 50px;
+  padding: 20px 0;
+  justify-content: center;
+  align-items: center; 
+  width:fit-content;
   }
   
   /* Styles for the recipe card */
   .recipe__card {
     margin-bottom: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
     position: relative;
+    width: 15em;
   }
   
   /*this is the styling for the recipe cards when you hover over them*/

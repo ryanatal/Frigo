@@ -7,7 +7,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 268px;
+    margin-left: 500px;
     padding-top: 60px;
     width: 63%;
   }
@@ -95,7 +95,6 @@ input#getIngredients:active {
 /* Styles for the ingredient container */
 #ingredientContainer {
     display: flex;
-    margin-left: 50px;
     margin-right: 50px;
     padding: 20px 0;
     justify-content: center;
@@ -113,7 +112,8 @@ input#getIngredients:active {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
     position: relative;
-    width: 15em;
+    width: 20em;
+    height: 20em;
   }
   
   /*this is the styling for the ingredient cards when you hover over them*/
@@ -121,27 +121,22 @@ input#getIngredients:active {
     transform: translateY(-10px);
   }
   .ingredientTitle {
+    text-align: center;
     font-size: 24px;
     font-weight: bold;
     padding: 10px;
   }
   
+  
+
   .ingredientList {
     font-size: 18px;
     line-height: 1.2;
     margin-bottom: 40px;
     padding: 20px;
-  }
-
-  .ingredientImage {
-    height: 200px;
-    background-color: #ccc;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
-  .ingredientList li {
-    list-style: circle;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
   }
 
   .ingredientContent {
