@@ -1,5 +1,9 @@
 @import "../../styles/styles.scss";
 
+.recipe-details-wrapper {
+    text-align: center;
+}
+
 #recipe-details-container {
     display: flex;
     width: 100%;
@@ -59,6 +63,7 @@
 
 .recipe-details-title {
     color: $primary-color;
+    margin: 4rem 3rem 0 3rem;
 }
 
 .recipe-details-measurements > h2 {
@@ -97,6 +102,7 @@
 
 .recipe-details-step {
     display: flex;
+    text-align: start;
 }
 
 .recipe-details-number {

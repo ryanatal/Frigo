@@ -28,45 +28,52 @@ export const RecipeDetails = () => {
   }, []);
 
   return (
-    <div id="recipe-details-container">
-      <div className="recipe-details-left">
-        <div className="recipe-details-img">
-          <img src={recipe.image} alt={recipe.title} />
-        </div>
-        <div className="recipe-details-ingredients">
-          <h2>Ingredients</h2>
-          {ingredients.map((ingredient, index) => (
-            <div key={index} className="recipe-details-ingredient">
-              {ingredient}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="recipe-details-right">
+    <>
+      <div className="recipe-details-wrapper">
         <div className="recipe-details-title">
           <h1>{recipe.title}</h1>
         </div>
-        {/* <div
+        <div id="recipe-details-container">
+          <div className="recipe-details-left">
+            <div className="recipe-details-img">
+              <img src={recipe.image} alt={recipe.title} />
+            </div>
+            <div className="recipe-details-ingredients">
+              <h2>Ingredients</h2>
+              {ingredients.map((ingredient, index) => (
+                <div key={index} className="recipe-details-ingredient">
+                  {ingredient}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="recipe-details-right">
+            {/* <div
           dangerouslySetInnerHTML={{ __html: recipe.summary }}
           className="recipe-details-description"
         ></div> */}
-        <div className="recipe-details-measurements">
-          <h2>Measurements</h2>
-          <ul className="recipe-details-measurement">
-            {measurements.map((measurement, index) => (
-              <li key={index}>{measurement}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="recipe-details-steps">
-          <h2>Steps</h2>
-          {instructions.map((instruction, index) => (
-            <div key={index} className="recipe-details-step">
-              <span className="recipe-details-number">{instruction.number}.</span> <div>{instruction.step}</div>
+            <div className="recipe-details-measurements">
+              <h2>Measurements</h2>
+              <ul className="recipe-details-measurement">
+                {measurements.map((measurement, index) => (
+                  <li key={index}>{measurement}</li>
+                ))}
+              </ul>
             </div>
-          ))}
+            <div className="recipe-details-steps">
+              <h2>Steps</h2>
+              {instructions.map((instruction, index) => (
+                <div key={index} className="recipe-details-step">
+                  <span className="recipe-details-number">
+                    {instruction.number}.
+                  </span>{" "}
+                  <div>{instruction.step}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
