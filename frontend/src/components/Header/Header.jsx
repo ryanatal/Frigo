@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <div id="header">
-      <img id="logo" src={logo} alt="logo" />
+      <Link to={"/"}>
+        <img id="logo" src={logo} alt="logo" />
+      </Link>
       <h1 id="title">Your Personal Recipe Finder</h1>
       <Link to="/aboutus">
         <input type="button" id="AboutUs" value="About Us" />
