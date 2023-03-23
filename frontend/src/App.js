@@ -5,10 +5,11 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Shopping from "./pages/ShoppingList/Shopping";
 import Authentication from "./pages/Authentication/Authentication";
-import SignUp from "./pages/Authentication/Signup";
-import Login from "./pages/Authentication/Login";
+// import SignUp from "./pages/Authentication/Signup";
+// import Login from "./pages/Authentication/Login";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Ingredients from "./pages/Ingredients/Ingredients";
+import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           {/* <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} /> */}
           <Route path="/authentication" element={<Authentication />} />
+          <Route path="recipe/:id" element={<RecipeDetails />} />
         </Routes>
       </div>
     </Router>
