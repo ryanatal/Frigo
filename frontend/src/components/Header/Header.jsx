@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../assets/Logo White Transparent.png"
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   render() {

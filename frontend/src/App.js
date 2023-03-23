@@ -9,14 +9,19 @@ import SignUp from './pages/Authentication/Signup';
 import Login from './pages/Authentication/Login';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Ingredients from './pages/Ingredients/Ingredients';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Home />
-      <Ingredients />
-    </div>
+    <div className='App'>
+    <Header />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes>
+    </Router>
+  </div>
   );
 }
 
