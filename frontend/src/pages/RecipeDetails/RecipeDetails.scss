@@ -70,6 +70,10 @@
     margin-left: 1rem;
 }
 
+.recipe-details-measurement > li {
+    justify-content: flex-start;
+}
+
 .recipe-details-measurement > li::before {
     content: "•";
     color: $primary-color;
