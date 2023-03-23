@@ -11,6 +11,21 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import Ingredients from './pages/Ingredients/Ingredients';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
+
+// import { Link } from "react-router-dom";
+// import { getIngredients } from "../../services/ApiService";
+// import { useState, useEffect } from "react";
+
+  // const [ingredients, setIngredients] = useState([]);
+  // const [recipe, setRecipe] = useState({});
+
+  // useEffect(() => {
+  //   getIngredients().then((ingredients) => {
+  //     setIngredients(ingredients);
+  //   });
+  //   console.log(ingredients);
+  // }, []);
+
 function App() {
   return (
     <div className='App'>
