@@ -1,132 +1,84 @@
 import React from 'react';
 import './Recipe.css';
+import recipe_img from '../../assets/recipe1.jpg';
+
 
 class Recipe extends React.Component {
   render() {
     return (
     <div>
-      <div id="search__container">
-        <input id="search__input" type="text" placeholder="Search for recipes" />
-        <input type = "button" id = "shopping__list" value = "Shopping List"/>
+      <div id="searchbar">
+        <input id="search_input" type="text" placeholder="Search for recipes" />
+        <input type = "button" id = "shopping_list" value = "Shopping List"/>
       </div>
       
-
+ 
       <div id="slider">
-      <div id="recipe__container">
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div id="container">
+
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Truffle Pasta</h2>
+                <p class="description">Truffle cheese, heavy cream, baby bella mushrooms, garlic, and pasta.</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
-      </div>
-          
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
-            </div>
-
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
 
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Recipe Title</h2>
+                <p class="description">Whole wheat pizza, pesto sauce, burrata cheese, and cherry.</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
-
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Recipe Title</h2>
+                <p class="description">Short description of the recipe</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Recipe Title</h2>
+                <p class="description">Short description of the recipe</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Recipe Title</h2>
+                <p class="description">Short description of the recipe</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
-
-          <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Recipe Title</h2>
+                <p class="description">Short description of the recipe</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
+      <div class="card">
+         <img id="recipe_img" src={recipe_img} alt="recipe_img" />
+            <div class="content">
+                <h2 class="title">Recipe Title</h2>
+                <p class="description">Short description of the recipe</p>
+                <div class="button">View Recipe</div>
             </div>
 
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
-      </div>
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
-            </div>
-
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
-      </div>
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
-            </div>
-
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
-      </div>
-
-      <div class="recipe__card">
-            <div class="recipe__image">
-                <div class="recipe__button">View Recipe</div>
-            </div>
-
-            <div class="recipe__content">
-                <h2 class="recipe__title">Recipe Title</h2>
-                <p class="recipe__description">Short description of the recipe</p>
-            </div>
       </div>
       </div>
     </div>
