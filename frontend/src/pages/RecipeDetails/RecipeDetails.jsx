@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import {
   getRecipeInfo,
@@ -14,18 +15,20 @@ export const RecipeDetails = () => {
   const [measurements, setMeasurements] = useState([]);
   const [instructions, setInstructions] = useState([]);
 
+  const { id } = useParams();
+
   useEffect(() => {
-    getRecipeInfo("1").then((recipe) => setRecipe(recipe));
-    getRecipeIngredients("1").then((ingredients) =>
+    getRecipeInfo(id).then((recipe) => setRecipe(recipe));
+    getRecipeIngredients(id).then((ingredients) =>
       setIngredients(ingredients)
     );
-    getRecipeMeasurements("1").then((measurements) =>
+    getRecipeMeasurements(id).then((measurements) =>
       setMeasurements(measurements)
     );
-    getRecipeInstructions("1").then((instructions) =>
+    getRecipeInstructions(id).then((instructions) =>
       setInstructions(instructions)
     );
-  }, []);
+  }, [id]);
 
   return (
     <>
