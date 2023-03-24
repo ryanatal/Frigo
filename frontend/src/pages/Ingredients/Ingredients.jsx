@@ -6,8 +6,8 @@ class Ingredients extends React.Component {
     render(){
         return (
             <div>
-                <div id="search__container">
-                    <input id="search__input" type="text" placeholder="Search for ingredient groups" />
+                <div id="searchContainer">
+                    <input id="searchInput" type="text" placeholder="Search for ingredient groups" />
                     <input type = "button" id = "getIngredients" value = "View Ingredients"/>
                 </div>
                 &nbsp;
@@ -60,7 +60,7 @@ class Ingredients extends React.Component {
                                 <div class="ingredientButton">Show More</div>
                                 </div>
 
-                            <div class="recipe__content">
+                            <div class="ingredientContent">
                                 <h2 class="ingredientTitle">Ingredient Group 3</h2>
                                 <ul class="ingredientList">
                                     <form id="ingredientGroup3">
@@ -82,7 +82,7 @@ class Ingredients extends React.Component {
                                 <div class="ingredientButton">Show More</div>
                                 </div>
 
-                            <div class="recipe__content">
+                            <div class="ingredientContent">
                                 <h2 class="ingredientTitle">Ingredient Group 4</h2>
                                 <ul class="ingredientList">
                                 <form id="ingredientGroup4">
@@ -102,7 +102,7 @@ class Ingredients extends React.Component {
                                 <div class="ingredientButton">Show More</div>
                                 </div>
 
-                            <div class="recipe__content">
+                            <div class="ingredientContent">
                                 <h2 class="ingredientTitle">Ingredient Group 5</h2>
                                 <ul class="ingredientList">
                                 <form id="ingredientGroup5">

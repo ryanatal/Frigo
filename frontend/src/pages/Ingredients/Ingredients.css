@@ -3,17 +3,17 @@ body{
     background-color: #f0ead6
 }
 /* Styles for the search container */
-#search__container {
+#searchContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 500px;
+    margin-left: 265px;
     padding-top: 60px;
     width: 63%;
   }
   
 /* Styles for the search input */
-#search__input {
+#searchInput {
     flex-grow: 1;
     padding: 12px 24px;
     background-color: transparent;
@@ -34,15 +34,15 @@ body{
   }
   
   /*this is the text that appears in the search bar*/
-#search__input::placeholder {
+#searchInput::placeholder {
     color: rgba(87, 87, 86, 0.8);
     text-transform: uppercase;
     letter-spacing: 1.5px;
   }
   
   /*this is the styling for the search bar when you hover over it*/
-#search__input:hover,
-#search__input:focus {
+#searchInput:hover,
+#searchInput:focus {
     padding: 12px 0;
     outline: 0;
     border: 1px solid transparent;
@@ -127,8 +127,7 @@ input#getIngredients:active {
     padding: 10px;
   }
   
-  
-
+ 
   .ingredientList {
     font-size: 18px;
     line-height: 1.2;
