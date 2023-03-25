@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <div id="header1">
+      <Link to ="/">
       <img id="logo1" src={logo} alt="logo" width="100px" />
+      </Link>
       <h1 id="title1">Your Personal Recipe Finder</h1>
+      <Link to ="aboutus">
       <button type="button" class="btn btn-outline-light" id="AboutUs1">
         About Us!
       </button>
+      </Link>
     </div>
   );
 };

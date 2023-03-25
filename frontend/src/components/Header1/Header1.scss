@@ -1,3 +1,4 @@
+@import "../../styles/styles.scss";
 #header1 {
   display: flex;
   justify-content: space-between;
@@ -33,6 +34,9 @@
 
 
 @media (max-width: 768px) {
+  #header1{
+    justify-content: center;
+  }
   #title1 {
     display: none;
   }
