@@ -1,6 +1,6 @@
 import React from 'react';
 import './LandingPage.scss';
-import CoverRecipe from '../CoverRecipe/CoverRecipe';
+import {CoverRecipe} from '../CoverRecipe/CoverRecipe';
 import CoverPage from '../CoverPage/CoverPage';
 
 class LandingPage extends React.Component {
