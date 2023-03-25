@@ -1,4 +1,5 @@
 @import "../../styles/styles.scss";
+
 #header1 {
   display: flex;
   justify-content: space-between;
@@ -14,6 +15,11 @@
   right: 0;
   opacity: 0.98;
 }
+
+#header1 > a {
+  text-decoration: none;
+}
+
 #title1{
     font-size: 30px;
     font-weight: 600;
