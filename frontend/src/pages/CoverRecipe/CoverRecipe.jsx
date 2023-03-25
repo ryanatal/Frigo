@@ -11,7 +11,7 @@ import {
 export const CoverRecipe = () => {
     const [recipe, setRecipe] = useState({});
     //gets id from url
-    const { id } = useParams();
+    const  id  = 1;
 
     useEffect(() => {
         getRecipeInfo(id).then((recipe) => setRecipe(recipe));

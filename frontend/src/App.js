@@ -27,7 +27,7 @@ function App() {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="recipe/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
-          <Route path="landing/:id" element={<LandingPage />} />
+          <Route path="landing" element={<LandingPage />} />
         </Routes>
       </div>
     </Router>
