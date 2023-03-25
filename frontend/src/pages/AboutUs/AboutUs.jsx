@@ -1,13 +1,11 @@
 import React from "react";
-import "./AboutUs.css";
+import "./AboutUs.scss";
 
 const AboutUs = () => {
   return (
+    <div className="aboutus">
     <div className="about-us-container">
-      <h1>About Frigo</h1>
-      <p className="mission-statement">
-      Welcome to Frigo, where our mission is to make cooking convenient and enjoyable for everyone. We understand that finding recipes to cook can be a daunting task, especially when you have limited ingredients in your pantry. That's why we have created a platform that helps you discover new and exciting recipes that you can cook with the ingredients you already have.      </p>
-      <h2>Our Team</h2>
+       <h2>Our Team</h2>
       <div className="team-container">
         <div className="team-member">
           <img src="https://via.placeholder.com/150" alt="Team member 1" />
@@ -30,6 +28,7 @@ const AboutUs = () => {
           <p>Full-stack developer</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
