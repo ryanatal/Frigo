@@ -12,12 +12,13 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 import CoverPage from "./pages/CoverPage/CoverPage";
 import WhiteCover from "./pages/WhiteCover/WhiteCover";
+import Header1 from "./components/Header1/Header1";
 
 function App() {
   return (
     <Router>
       <div className="App">
-      
+      <Header1 />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />

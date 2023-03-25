@@ -6,7 +6,7 @@ class CoverPage extends React.Component {
   render() {
     return (
       <div className="cover-page">
-        <div className="content">
+        <div id="content" class="container"> 
           <h1 className='title'>Frigo</h1>
           <p className="subtitle">Discover the world of food</p>
           <button className="IngredientsButton">Ingredients!</button>
