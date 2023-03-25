@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+// import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Shopping from "./pages/ShoppingList/Shopping";
 import Authentication from "./pages/Authentication/Authentication";
@@ -12,7 +12,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 import CoverPage from "./pages/CoverPage/CoverPage";
 import Header1 from "./components/Header1/Header1";
-
+import LandingPage from "./pages/LandingPage/LandingPage";
 function App() {
   return (
     <Router>
@@ -27,6 +27,7 @@ function App() {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="recipe/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
+          <Route path="landing" element={<LandingPage />} />
         </Routes>
       </div>
     </Router>
