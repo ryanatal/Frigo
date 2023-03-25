@@ -11,7 +11,6 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 //import Ingredients from "./pages/Ingredients/Ingredients";
 import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 import CoverPage from "./pages/CoverPage/CoverPage";
-import WhiteCover from "./pages/WhiteCover/WhiteCover";
 import Header1 from "./components/Header1/Header1";
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="recipe/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
-          <Route path="whitecover" element={<WhiteCover />} />
         </Routes>
       </div>
     </Router>
