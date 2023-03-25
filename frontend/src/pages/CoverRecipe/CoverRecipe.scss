@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 // VARIABLES
-$bg: url("https://wallpaperscraft.com/image/coffee_coffee_beans_cupcake_candy_93301_1920x1080.jpg") no-repeat center;
 $food: url("http://img.taste.com.au/UZVXAdo7/taste/2016/11/chinese-egg-noodle-and-vegetable-stir-fry-94186-1.jpeg") no-repeat center;
 
 // FONT
@@ -43,10 +42,11 @@ $font: 'Roboto', sans-serif;
     width: 20%;
     margin: 20px auto;
     box-shadow: 0px 0px 30px 2px #000;
-   .header {
-      background: $food;
+   .cardImage{
       background-size: cover;
-      min-height: 350px;
+      height: 40%;
+      width: 100%;
+      padding: 5px;
    }
    .text {
       .food {
@@ -56,6 +56,7 @@ $font: 'Roboto', sans-serif;
          text-transform: uppercase;
          letter-spacing: 0.1em;
          margin: 5px 30px;
+         font-size: x-large;
       }
    }
    .info {
