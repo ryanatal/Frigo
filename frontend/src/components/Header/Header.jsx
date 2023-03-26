@@ -1,19 +1,47 @@
 import React from "react";
-import "./Header.css";
-import logo from "../../assets/Logo White Transparent.png";
-import { Link } from "react-router-dom";
+import './Header.scss';
+import logo from "../../assets/Logo Black Transparent.png";
+import { Link, useLocation } from "react-router-dom";
 
-export const Header = () => {
+const Header = () => {
+  const location = useLocation();
+
   return (
-    <div id="header">
-      <Link to={"/"}>
-        <img id="logo" src={logo} alt="logo" />
-      </Link>
-      <h1 id="title">Your Personal Recipe Finder</h1>
-      <Link to="/aboutus">
-        <input type="button" id="AboutUs" value="About Us" />
-      </Link>
-    </div>
+      <header id="nav-wrapper">
+        <nav id="nav">
+        <Link to ="/">
+          <div className="nav left">
+            <span className="gradient skew">
+              <h1 className="logo un-skew">
+                <img src = {logo} alt="logo" id = "headerlogo" width="90px"></img>
+              </h1>
+            </span>
+          </div>
+          </Link>
+          <div className="nav right">
+            <Link to="/landing" className={`nav-link ${location.pathname === '/landing' ? 'active' : ''}`}>
+              <span className="nav-link-span">
+                <span className="u-nav">Home</span>
+              </span>
+            </Link>
+            <Link to="/ingredients" className={`nav-link ${location.pathname === '/ingredients' ? 'active' : ''}`}>
+              <span className="nav-link-span">
+                <span className="u-nav">Ingredients</span>
+              </span>
+            </Link>
+            <Link to="/shopping" className={`nav-link ${location.pathname === '/shopping' ? 'active' : ''}`}>
+              <span className="nav-link-span">
+                <span className="u-nav">Shopping</span>
+              </span>
+            </Link>
+            <Link to="/aboutus" className={`nav-link ${location.pathname === '/aboutus' ? 'active' : ''}`}>
+              <span className="nav-link-span">
+                <span className="u-nav">About</span>
+              </span>
+            </Link>
+          </div>
+        </nav>
+      </header>
   );
 };
 
