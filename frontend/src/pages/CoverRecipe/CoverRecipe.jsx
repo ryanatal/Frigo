@@ -1,8 +1,7 @@
 import React from 'react';
 import './CoverRecipe.scss';
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 import {
     getRecipeInfo
 } from "../../services/ApiService";
@@ -34,7 +33,7 @@ export const CoverRecipe = () => {
                     </h1>
                     <p className="info">ETA: {recipe.readyInMinutes} &nbsp; &nbsp; Likes: {recipe.aggregateLikes}</p>
                 </div>
-                    <a href="#" className="btn">Let's Cook!</a>
+                    <Link to={`/recipe/${id}`} className="btn">Let's Cook!</Link>
             </div>
         </div>
         </>
