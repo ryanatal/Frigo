@@ -13,7 +13,7 @@ const Header = () => {
           <div className="nav left">
             <span className="gradient skew">
               <h1 className="logo un-skew">
-                <img src = {logo} alt="logo" id = "headerlogo" width="90px"></img>
+                <img src = {logo} alt="logo" id = "headerlogo" width="80px"></img>
               </h1>
             </span>
           </div>
