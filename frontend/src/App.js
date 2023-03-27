@@ -31,6 +31,7 @@ function App() {
           <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
           <Route path="landing" element={<LandingPage />} />
+          
         </Routes>
       </div>
     </Router>

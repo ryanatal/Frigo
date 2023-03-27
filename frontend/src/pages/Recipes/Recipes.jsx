@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getRecipeInfo} from "../../services/ApiService";
+import "./Recipes.scss";
 
-export const Recipe = () => {
+export const Recipes = () => {
   const [recipe, setRecipe] = useState({});
   const  id  = 1;
 
@@ -31,10 +32,35 @@ export const Recipe = () => {
           </div>
               <Link to={`/recipe/${id}`} className="btn">view more</Link>
           </div>
+        
+        <div className="card">
+          <div className="header">
+              <img src={recipe.image} alt={recipe.title} className="cardImage"></img>
+          </div>
+          <div className="text">
+              <h1 className="food">
+                  {recipe.title}
+              </h1>
+          </div>
+              <Link to={`/recipe/${id}`} className="btn">view more</Link>
+          </div>
+        
+        <div className="card">
+          <div className="header">
+              <img src={recipe.image} alt={recipe.title} className="cardImage"></img>
+          </div>
+          <div className="text">
+              <h1 className="food">
+                  {recipe.title}
+              </h1>
+          </div>
+              <Link to={`/recipe/${id}`} className="btn">view more</Link>
+          </div>
         </div>
+
       </div>
     </div>
   );
 };
 
-export default Recipe;
+export default Recipes;
