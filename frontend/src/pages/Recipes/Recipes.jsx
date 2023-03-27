@@ -30,7 +30,7 @@ export const Recipes = () => {
                   {recipe.title}
               </h1>
           </div>
-              <Link to={`/recipe/${id}`} className="btn">view more</Link>
+              <Link to={`/recipes/${id}`} className="btn">view more</Link>
           </div>
         
         <div className="card">
