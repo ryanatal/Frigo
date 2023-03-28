@@ -1,36 +1,33 @@
 export const Ingredients =  [
+   {
+        "name": "butter",
+        "aisle": "Milk, Eggs, Other Dairy",
+        "categoryPath": [
+            "Dairy",
+        ]
+   },
+   {
+        "name": "garlic",
+        "aisle": "Produce",
+        "categoryPath": [
+            "Vegetables",
+        ]
+   },
+
     {
-        id: 1,
-        name: 'Bread',
+        "name" : "chocolate",
+        "aisle" : "Sweet Snacks",
+        "categoryPath" : [
+            "Sweet Snacks",
+        ]
     },
     {
-        id: 2,
-        name: 'Bread',
-    },
-    {
-        id: 3,
-        name: 'Bread',
-    },
-    {
-        id: 4,
-        name: 'Bread',
-    },
-    {
-        id: 5,
-        name: 'Bread',
-    },
-    {
-        id: 6,
-        name: 'Bread',
-    },
-    {
-        id: 7,
-        name: 'Bread',
-    },
-    {
-        id: 8,
-        name: 'Bread',
-    },
+        "name" : "chocolate chips",
+        "aisle" : "Sweet Snacks",
+        "categoryPath" : [
+            "Sweet Snacks",
+        ]
+    }
 ]
 
 export const RecipesInfo = {
