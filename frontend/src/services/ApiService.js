@@ -33,53 +33,50 @@ export const getRecipeInstructions = async (id) => {
 };
 
 
-// export const getAisle = async () => {
-//     const module = await import("../data/data.js");
-//     const aisles = [];
-//     module.Ingredients.forEach((ingredient) => {
-//        ingredient.categoryPath.forEach((aisle) => {
-//            aisles.push(aisle);
-//        })
-//     })
-//     const ingredients = [];
-//     aisles.forEach((aisle) => {
-//     const ingredientList = [];
-//     module.Ingredients.forEach((ingredient) => {
-//         ingredient.categoryPath.forEach((aisle1) => {
-//             if (aisle1 === aisle) {
-//                 ingredientList.push(ingredient.name);
-//             }
-//         })
-//     })
-//     ingredients.push(ingredientList);
-//    })
-
-//     const list = [ aisles, ingredients ];
-//     return list;
-//};
-
-
 export const getAisle = async () => {
     const module = await import("../data/data.js");
-        const aisles = [];
+    const aisles = [];
+    module.Ingredients.forEach((ingredient) => {
+        if (!aisles.includes(ingredient.aisle))
+           aisles.push(ingredient.aisle);
+    })
 
-        module.RecipesInfo[1].extendedIngredients.forEach((ingredient) => {
-            if (!aisles.includes(ingredient.aisle))
-            aisles.push(ingredient.aisle);
+    const ingredients = [];
+    aisles.forEach((aisle) => {
+    const ingredientList = [];
+    module.Ingredients.forEach((ingredient) => {
+            if (ingredient.aisle === aisle)
+                ingredientList.push(ingredient.name);
         })
-        const ingredients = [];
-        aisles.forEach((aisle) => {
-            const ingredientList = [];
-            module.RecipesInfo[1].extendedIngredients.forEach((ingredient) => {
-                if (ingredient.aisle === aisle) {
-                    ingredientList.push(ingredient.name);
-                }
-            })
-            ingredients.push(ingredientList);
-            
-        })
-        const aisleIngredients = [ aisles, ingredients ];
-        return aisleIngredients;
+    ingredients.push(ingredientList);
+   })
+
+    const list = [ aisles, ingredients ];
+    return list;
 };
+
+
+// export const getAisle = async () => {
+//     const module = await import("../data/data.js");
+//         const aisles = [];
+
+//         module.RecipesInfo[1].extendedIngredients.forEach((ingredient) => {
+//             if (!aisles.includes(ingredient.aisle))
+//             aisles.push(ingredient.aisle);
+//         })
+//         const ingredients = [];
+//         aisles.forEach((aisle) => {
+//             const ingredientList = [];
+//             module.RecipesInfo[1].extendedIngredients.forEach((ingredient) => {
+//                 if (ingredient.aisle === aisle) {
+//                     ingredientList.push(ingredient.name);
+//                 }
+//             })
+//             ingredients.push(ingredientList);
+            
+//         })
+//         const aisleIngredients = [ aisles, ingredients ];
+//         return aisleIngredients;
+// };
 
 

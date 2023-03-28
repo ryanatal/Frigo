@@ -24,7 +24,7 @@ export const Ingredients1 = () => {
                 
                     <div class="ingredientCard">
                             <div>
-                                <div class="ingredientButton">Show More</div>
+                                {/* <div class="ingredientButton">Show More</div> */}
                                 </div>
 
                                 <div class="ingredientContent">

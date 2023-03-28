@@ -101,6 +101,10 @@ input#getIngredients:active {
     width:fit-content;
   }
   
+  .ingredientList{
+    overflow-y: scroll;
+    height: 15em;
+  }
 
   /* Styles for the ingredient card */
   .ingredientCard {
@@ -113,7 +117,7 @@ input#getIngredients:active {
     transition: transform 0.2s ease-in-out;
     position: relative;
     width: 20em;
-    height: 15em;
+    height: 20em;
   }
   
   /*this is the styling for the ingredient cards when you hover over them*/
