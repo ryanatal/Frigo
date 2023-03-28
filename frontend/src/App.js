@@ -16,6 +16,7 @@ import CoverPage from "./pages/CoverPage/CoverPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 
+
 function App() {
   return (
     <Router>
