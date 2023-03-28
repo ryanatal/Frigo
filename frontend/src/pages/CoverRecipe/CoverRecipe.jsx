@@ -33,7 +33,7 @@ export const CoverRecipe = () => {
                     </h1>
                     <p className="info">ETA: {recipe.readyInMinutes} &nbsp; &nbsp; Likes: {recipe.aggregateLikes}</p>
                 </div>
-                    <Link to={`/recipe/${id}`} className="btn">Let's Cook!</Link>
+                    <Link to={`/recipes/${id}`} className="btn">Let's Cook!</Link>
             </div>
         </div>
         </>
