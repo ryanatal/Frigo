@@ -1,11 +1,12 @@
-
 import React from 'react';
 import './RecipeCard.scss';
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
     getRecipeInfo
 } from "../../services/ApiService";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 
 export const RecipeCard = ({ id }) => { // receive id as a prop
@@ -16,22 +17,18 @@ export const RecipeCard = ({ id }) => { // receive id as a prop
     }, [id]);
 
     return (
-        <>
-        <div className="CoverRecipe">
-            <div className="card">
-                <div className="header">
-                    <img src={recipe.image} alt={recipe.title} className="cardImage"></img>
-                </div>
-                <div className="text">
-                    <h1 className="food">
-                        {recipe.title}
-                    </h1>
-                    <p className="info">ETA: {recipe.readyInMinutes} &nbsp; &nbsp; Likes: {recipe.aggregateLikes}</p>
-                </div>
-                    <Link to={`/recipes/${id}`} className="Cook">Let's Cook!</Link>
-            </div>
-        </div>
-        </>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={recipe.image} className="cardImage"/>
+            <Card.Body className='CardBody'>
+                <Card.Title className="food1">{recipe.title}</Card.Title>
+                <Card.Text className="info1">
+                    ETA: {recipe.readyInMinutes} &nbsp; &nbsp; Likes: {recipe.aggregateLikes}
+                </Card.Text>
+                <Link to={`/recipes/${id}`}>
+                    <Button className="CookButton">Let's Cook!</Button>
+                </Link>        
+            </Card.Body>
+        </Card>
     );
 };
 

@@ -1,45 +1,29 @@
 @import "../../styles/styles.scss";
 
-.card {
-    position: relative;
-    background: $white;
-    width: 20%;
-    margin: 20px auto;
-    box-shadow: 0px 0px 30px 2px #000;
-   .cardImage{
-      background-size: cover;
-      height: 40%;
-      width: 100%;
-      padding: 5px;
-   }
-   .text {
-      .food {
-         color: $black;
-         text-align: left;
-         font-weight: normal;
-         text-transform: uppercase;
-         letter-spacing: 0.1em;
-         margin: 5px 30px;
-         font-size: x-large;
-      }
-   }
-   .info {
-      margin: 10px 30px;
-   }
-   a.Cook {
-      display: block;
-      background: $button;
-      color: $white;
-      position: relative;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-align: center;
-      padding: 10px;
-      transition: 250ms;
-      &:hover {
-         background: $hover;
-         transition: 250ms;
-      }
-   }
+.cardImage{
+    background-size: cover;
+    height: 40%;
+    width: 100%;
+    padding: 5px;
+ }
+
+.CookButton {
+    background-color: $button !important; 
+    color: $white !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em !important;
+    padding: 10px !important;
+    transition: 250ms !important;
+    border: solid $button-border !important ;
+    &:hover {
+        background: $hover !important;
+        transition: 250ms !important;
+    }
 }
 
+.CardBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
