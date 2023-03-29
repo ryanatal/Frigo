@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getRecipeInfo} from "../../services/ApiService";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
@@ -22,13 +21,17 @@ export const Recipes = () => {
 
       <div id="slider">
             <RecipeCard id="1"/>
+            <RecipeCard id="2"/>
+            <RecipeCard id="3"/>
             <RecipeCard id="1"/>
+            <RecipeCard id="2"/>
+            <RecipeCard id="3"/>
             <RecipeCard id="1"/>
-            <RecipeCard id="1"/>
-            <RecipeCard id="1"/>
+            <RecipeCard id="2"/>
       </div>
     </div>
   );
+  
 };
 
 export default Recipes;

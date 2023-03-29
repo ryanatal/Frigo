@@ -382,7 +382,28 @@ export const RecipesInfo = {
                 }
             ]
         }
+    },
+
+    2: {
+        "id": 716430,
+        "title": "Truffle Pasta with Cauliflower and Mushrooms",
+        "image" : require('../assets/recipe1.jpg'),
+        "readyInMinutes": 50,
+        "aggregateLikes": 100,
+    },
+
+    3: {
+        "id": 716431,
+        "title": "Pizza Burrata with cherry tomatoes and cauliflower",
+        "image": require('../assets/recipe2.jpeg'),
+        "readyInMinutes": 30,
+        "aggregateLikes": 50,
     }
+
+
+
+
+
 }
 
 export const AnalyzedInstructions = {
