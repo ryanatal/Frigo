@@ -7,8 +7,42 @@ export const CoverRecipe = () => {
         <>
         <div className="Intro">
             <h1>What's for dinner?</h1>
+            <div className="d-flex flex-nowrap cardAxis">
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+                <div className="RecipeCard">
+                    <RecipeCard id={1} />
+                </div>
+
+            </div>
         </div>
-        <RecipeCard id="1" />
+
+        
         </>
     );
 };

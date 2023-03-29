@@ -18,8 +18,11 @@ $font: 'Roboto', sans-serif;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   color: $white;
    padding: 20px;
 }
 
 
+.cardAxis {
+    overflow-x: scroll;
+    width: 70%;
+}
