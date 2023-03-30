@@ -65,6 +65,39 @@ export const Ingredients =  [
     }
 ]
 
+export const Recipes = [
+    {
+        "id": 1,
+        "title": "Truffle Pasta with Cauliflower and Mushrooms",
+        "image" : require('../assets/recipe1.jpg'),
+        "readyInMinutes": 50,
+        "aggregateLikes": 100,
+    },
+    {
+        "id": 1,
+        "title": "Truffle Pasta with Cauliflower and Mushrooms",
+        "image" : require('../assets/recipe1.jpg'),
+        "readyInMinutes": 50,
+        "aggregateLikes": 100,
+    },
+
+    {
+        "id": 1,
+        "title": "Pizza Burrata with cherry tomatoes and cauliflower",
+        "image": require('../assets/recipe2.jpeg'),
+        "readyInMinutes": 30,
+        "aggregateLikes": 50,
+    },
+
+    {
+        "id": 1,
+        "title": "Pasta with creamy tomato sauce ",
+        "image": require('../assets/recipe3.jpeg'),
+        "readyInMinutes": 40,
+        "aggregateLikes": 50,
+    },
+]
+
 export const RecipesInfo = {
     1: {
         "id": 716429,
@@ -418,31 +451,6 @@ export const RecipesInfo = {
             ]
         }
     },
-    
-
-    2: {
-        "id": 716430,
-        "title": "Truffle Pasta with Cauliflower and Mushrooms",
-        "image" : require('../assets/recipe1.jpg'),
-        "readyInMinutes": 50,
-        "aggregateLikes": 100,
-    },
-
-    3: {
-        "id": 716431,
-        "title": "Pizza Burrata with cherry tomatoes and cauliflower",
-        "image": require('../assets/recipe2.jpeg'),
-        "readyInMinutes": 30,
-        "aggregateLikes": 50,
-    },
-
-    4: {
-        "id": 716432,
-        "title": "Pasta with creamy tomato sauce ",
-        "image": require('../assets/recipe3.jpeg'),
-        "readyInMinutes": 40,
-        "aggregateLikes": 50,
-    }
 }
 
 export const AnalyzedInstructions = {

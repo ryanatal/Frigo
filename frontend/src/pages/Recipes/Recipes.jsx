@@ -1,30 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { getRecipeInfo } from "../../services/ApiService";
+import { getRecipes } from "../../services/ApiService";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
-export const Recipes = ({ id }) => {
-  const [recipecount, setRecipe] = useState([]);
+export const Recipes = () => {
+
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    async function fetchRecipeData() {
-      const data = await getRecipeInfo(id);
-      setRecipe(data);
-    }
-    fetchRecipeData();
-  }, [id]);
-
-  const getRecipe = (recipecount) => {
-    let recipeList = [];
-    if (recipecount) {
-      recipeList = recipecount.map((recipe) => (
-        <RecipeCard id={recipe.id} />
-      ));
-    }
-    return recipeList;
-  };
-  
+    getRecipes().then((data) => {
+      setRecipes(data);
+    });
+  }, []);
 
   return (
     <div id="main">
@@ -33,7 +21,14 @@ export const Recipes = ({ id }) => {
       </div>
 
       <div id="slider">
-        <div className="sliderContent">{getRecipe()}</div>
+        <div className="sliderContent">
+          {recipes.map((recipe) => (
+            <RecipeCard
+              key={recipe.id}
+              id={recipe.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

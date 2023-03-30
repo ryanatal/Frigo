@@ -3,6 +3,12 @@ export const getIngredients = async () => {
     return module.Ingredients;
 }
 
+export const getRecipes = async (count) => {
+    const module = await import("../data/data.js");
+    console.log("recipes: " + module.Recipes)
+    return module.Recipes.slice(0, count);
+}
+
 export const getRecipeInfo = async (id) => {
     const module = await import("../data/data.js");
     return module.RecipesInfo[id];
