@@ -90,6 +90,10 @@ input#getIngredients {
   scroll-snap-align: start;
 }
 
+#sliderContent{
+  width:30%;
+}
+
 #slider::-webkit-scrollbar {
   display: none;
 }

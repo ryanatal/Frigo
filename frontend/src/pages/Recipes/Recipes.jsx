@@ -1,37 +1,42 @@
-import React from 'react';
-import { useState, useEffect } from "react";
-import { getRecipeInfo} from "../../services/ApiService";
+import React, { useState, useEffect } from "react";
+import { getRecipeInfo } from "../../services/ApiService";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
-export const Recipes = () => {
-  const [recipe, setRecipe] = useState({});
-  const  id  = 1;
+export const Recipes = ({ id }) => {
+  const [recipecount, setRecipe] = useState([]);
 
   useEffect(() => {
-      getRecipeInfo(id).then((recipe) => setRecipe(recipe));
-    }, [id]);
+    async function fetchRecipeData() {
+      const data = await getRecipeInfo(id);
+      setRecipe(data);
+    }
+    fetchRecipeData();
+  }, [id]);
+
+  const getRecipe = (recipecount) => {
+    let recipeList = [];
+    if (recipecount) {
+      recipeList = recipecount.map((recipe) => (
+        <RecipeCard id={recipe.id} />
+      ));
+    }
+    return recipeList;
+  };
+  
 
   return (
     <div id="main">
-       <div id="searchContainer">
-          <input id="searchInput" type="text" placeholder="Search for recipes" />
-        </div>
+      <div id="searchContainer">
+        <input id="searchInput" type="text" placeholder="Search for recipes" />
+      </div>
 
       <div id="slider">
-            <RecipeCard id="1"/>
-            <RecipeCard id="2"/>
-            <RecipeCard id="3"/>
-            <RecipeCard id="1"/>
-            <RecipeCard id="2"/>
-            <RecipeCard id="3"/>
-            <RecipeCard id="1"/>
-            <RecipeCard id="2"/>
+        <div className="sliderContent">{getRecipe()}</div>
       </div>
     </div>
   );
-  
 };
 
 export default Recipes;

@@ -418,6 +418,7 @@ export const RecipesInfo = {
             ]
         }
     },
+    
 
     2: {
         "id": 716430,
@@ -433,12 +434,15 @@ export const RecipesInfo = {
         "image": require('../assets/recipe2.jpeg'),
         "readyInMinutes": 30,
         "aggregateLikes": 50,
+    },
+
+    4: {
+        "id": 716432,
+        "title": "Pasta with creamy tomato sauce ",
+        "image": require('../assets/recipe3.jpeg'),
+        "readyInMinutes": 40,
+        "aggregateLikes": 50,
     }
-
-
-
-
-
 }
 
 export const AnalyzedInstructions = {
