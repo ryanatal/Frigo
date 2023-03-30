@@ -1,28 +1,14 @@
 @import "../../styles/styles.scss";
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-// VARIABLES
-$food: url("http://img.taste.com.au/UZVXAdo7/taste/2016/11/chinese-egg-noodle-and-vegetable-stir-fry-94186-1.jpeg") no-repeat center;
-
-// FONT
-$font: 'Roboto', sans-serif;
-
-.CoverRecipe{
-    height:100%;
-    width:100%;
-    background-color:rgb(49, 49, 49);
+.CoverRecipe {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.Intro{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   padding: 20px;
+.carousel-inner {
+    display: flex;
+    height: 90%;
 }
 
-
-.cardAxis {
-    overflow-x: scroll;
-    width: 70%;
-}
+//push cards inwards more and fix heights of each cards to be fixed 
+//allow the icons to be visible and not hidden by cards
