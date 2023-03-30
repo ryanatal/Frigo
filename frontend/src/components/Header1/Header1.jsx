@@ -7,8 +7,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function CollapsibleExample() {
+    const location = useLocation();
   return (
-    <Navbar collapseOnSelect expand="lg" bg="black" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" className="fixed-top HeaderOpacity">
       <Container>
         <Navbar.Brand href="/landing" className='ml-auto'>
             <img src={logo} className="logo" alt="logo" width ='90px'/>
@@ -16,16 +17,16 @@ function CollapsibleExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
             <Nav className="RightNavbar">
-                <Nav.Link href="/">
+                <Nav.Link href="/" className = {location.pathname === "/" ? "CurrentRoute" : ""}>
                     Home
                 </Nav.Link>
-                <Nav.Link href="/ingredients">
+                <Nav.Link href="/ingredients" className = {location.pathname === "/ingredients" ? "CurrentRoute" : ""}>
                   Ingredients
                 </Nav.Link>
-                <Nav.Link href="/shopping">
+                <Nav.Link href="/shopping" className = {location.pathname === "/shopping" ? "CurrentRoute" : ""}>
                   Shopping
                 </Nav.Link>
-                <Nav.Link href="/aboutus">
+                <Nav.Link href="/aboutus" className = {location.pathname === "/aboutus" ? "CurrentRoute" : ""}>
                   About
                 </Nav.Link>
                 <NavDropdown title="Profile"id="collasible-nav-dropdown">              
