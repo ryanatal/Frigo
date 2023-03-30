@@ -35,7 +35,7 @@ export const Ingredients1 = () => {
                                     </form>
                                 </ul>
                             </div>
-                        </div>
+                    </div>
                 )
             } 
             return ingredientList;
@@ -63,7 +63,7 @@ export const Ingredients1 = () => {
             </div>
                 &nbsp;
                 &nbsp;
-                <div id="slider">
+                <div id="sliderIngredient">
                     <div id="ingredientContainer">
                         {getList(ingredientData)}
                     </div>
