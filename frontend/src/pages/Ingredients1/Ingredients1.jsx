@@ -22,14 +22,14 @@ export const Ingredients1 = () => {
             for (let j = 0; j < aisle.length; j++) {
                 ingredientList.push(
                 
-                    <div class="ingredientCard">
+                    <div class="ingredientCard card">
                             <div>
                                 {/* <div class="ingredientButton">Show More</div> */}
                                 </div>
 
-                                <div class="ingredientContent">
-                                <h2 class="ingredientTitle">{aisle[j]}</h2>
-                                <ul class="ingredientList">
+                                <div class="ingredientContainer card-body">
+                                <h4 class="card-title ingredientTitle" >{aisle[j]}</h4>
+                                <ul class="card-text ingredientList">
                                     <form id={aisle[j]}>
                                     {getIngredients(ingredients[j])}
                                     </form>
@@ -46,7 +46,7 @@ export const Ingredients1 = () => {
         let ingredientList = [];
         for (let i = 0; i < ingredients.length; i++) {
             ingredientList.push(
-                <li key={i}>
+                <li key={i} className="ingredientsLI">
                     <input type="checkbox" class="checkbox" id={ingredients[i]} name={ingredients[i]} value={ingredients[i]}></input>
                     <label for={ingredients[i]}>{ingredients[i]}</label>
                 </li>
@@ -57,6 +57,7 @@ export const Ingredients1 = () => {
 
     return (
         <>
+            <div className="main">
             <div id="searchContainer">
                     <input id="searchInput" type="text" placeholder="Search for ingredients" />
                     <input type = "button" id = "getIngredients" value = "View Ingredients"/>
@@ -64,9 +65,10 @@ export const Ingredients1 = () => {
                 &nbsp;
                 &nbsp;
                 <div id="sliderIngredient">
-                    <div id="ingredientContainer">
+                    <div className="card-deck">
                         {getList(ingredientData)}
                     </div>
+                </div>
                 </div>
         </>
     );
