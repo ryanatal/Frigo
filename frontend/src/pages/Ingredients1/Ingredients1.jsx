@@ -47,7 +47,7 @@ export const Ingredients1 = () => {
         for (let i = 0; i < ingredients.length; i++) {
             ingredientList.push(
                 <li key={i}>
-                    <input type="checkbox" id={ingredients[i]} name={ingredients[i]} value={ingredients[i]}></input>
+                    <input type="checkbox" class="checkbox" id={ingredients[i]} name={ingredients[i]} value={ingredients[i]}></input>
                     <label for={ingredients[i]}>{ingredients[i]}</label>
                 </li>
             )

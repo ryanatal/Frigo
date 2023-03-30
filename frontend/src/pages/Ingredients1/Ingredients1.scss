@@ -89,8 +89,11 @@ input#getIngredients:active {
     overflow-x: scroll;
     margin-left: 200px;;
     margin-right: 200px;
-
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0px 20%;
   }
+
+
 /* Styles for the ingredient container */
 #ingredientContainer {
     display: flex;
@@ -136,8 +139,10 @@ input#getIngredients:active {
     padding: 10px;
   }
 
-
   
+  #sliderIngredient::-webkit-scrollbar {
+    display: none;
+  }
 
   .ingredientContent {
     padding: 15px;

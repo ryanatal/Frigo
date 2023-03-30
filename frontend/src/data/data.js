@@ -27,6 +27,41 @@ export const Ingredients =  [
         "categoryPath" : [
             "Sweet Snacks",
         ]
+    },
+
+    {
+        "name" : "scallions",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "apple",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "pineapple",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "banana",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "cherry",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "orange",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "corn",
+        "aisle" : "Produce"
     }
 ]
 
