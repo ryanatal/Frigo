@@ -4,11 +4,11 @@
 	box-sizing: border-box;
 }
 
-body {
+/* body {
 	margin: 0;
 	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     background-color: #f0ead6;
-}
+} */
 
 .forms-section {
 	display: flex;

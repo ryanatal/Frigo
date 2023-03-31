@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import "./ClickableDiv.scss";
 
-const ClickableDiv = ({ items }) => {
-  const [selectedItems, setSelectedItems] = useState([]);
+export const ClickableDiv = ({ items, selectedItems, setSelectedItems }) => {
 
   const handleClick = (item) => {
     if (selectedItems.includes(item)) {
@@ -12,23 +11,16 @@ const ClickableDiv = ({ items }) => {
     }
   };
 
-  useEffect(() => {
-    console.log(selectedItems);
-    }, [selectedItems]);
-
   return (
-    <div>
-      {items.map((item, index) => (
+    <div className='items-wrapper'>
+      {items && items.map((item, index) => (
         <a
           key={index}
-          className="clickable-item"
+          className={`clickable-item ${selectedItems.includes(item) ? 'selected' : ''}`}
           href="#"
           onClick={(e) => {
             e.preventDefault();
             handleClick(item);
-          }}
-          style={{
-            color: selectedItems.includes(item) ? 'blue' : 'black',
           }}
         >
           {item}

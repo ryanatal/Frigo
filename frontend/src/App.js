@@ -1,10 +1,10 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header1 from "./components/Header1/Header1";
 import Home from "./pages/Home/Home";
-import Shopping from "./pages/ShoppingList/Shopping";
+import { ShoppingList} from "./pages/ShoppingList/ShoppingList";
 import Authentication from "./pages/Authentication/Authentication";
 // import SignUp from "./pages/Authentication/Signup";
 // import Login from "./pages/Authentication/Login";
@@ -14,17 +14,23 @@ import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 import CoverPage from "./pages/CoverPage/CoverPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
+import { IngredientsSelectedContext } from "./IngredientsSelectedContext";
 
 
 function App() {
+
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+
   return (
+    <>
+    <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
     <Router>
       <div className="App">
       <Header1 />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/shopping" element={<Shopping />} />
+          <Route path="/shopping" element={<ShoppingList />} />
           {/* <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} /> */}
           <Route path="/authentication" element={<Authentication />} />
@@ -35,6 +41,8 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </IngredientsSelectedContext.Provider>
+    </>
   );
 }
 
