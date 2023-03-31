@@ -33,16 +33,16 @@ export const CoverRecipe = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <div className="carousel-inner">
-                        <RecipeCard id={2} />
-                        <RecipeCard id={2} />
-                        <RecipeCard id={2} />
+                        <RecipeCard id={1} />
+                        <RecipeCard id={1} />
+                        <RecipeCard id={1} />
                     </div>
                 </Carousel.Item>
                 <Carousel.Item>
                     <div className="carousel-inner">
-                        <RecipeCard id={3} />
-                        <RecipeCard id={3} />
-                        <RecipeCard id={3} />
+                        <RecipeCard id={1} />
+                        <RecipeCard id={1} />
+                        <RecipeCard id={1} />
                     </div>
                 </Carousel.Item>
             </Carousel>
