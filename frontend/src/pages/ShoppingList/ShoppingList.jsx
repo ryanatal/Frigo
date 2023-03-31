@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./ShoppingList.scss";
 import { ClickableDiv } from "../../components/ClickableDiv/ClickableDiv";
 import { IngredientsSelectedContext } from "../../IngredientsSelectedContext";
@@ -8,9 +8,11 @@ export const ShoppingList = () => {
     IngredientsSelectedContext
   );
 
-  useEffect(() => {
-    console.log(selectedIngredients);
-  }, [selectedIngredients]);
+  const removeItem = (index) => {
+    const newSelectedIngredients = [...selectedIngredients];
+    newSelectedIngredients.splice(index, 1);
+    setSelectedIngredients(newSelectedIngredients);
+  };
 
   return (
     <div className="shopping-list card-deck">
@@ -73,8 +75,8 @@ export const ShoppingList = () => {
               <div key={index} className="shopping-item">
                 {item}
                 <div className="shopping-btns-wrapper">
-                  <button className="btn btn-primary">Got it</button>
-                  <button className="btn btn-danger">Remove</button>
+                  <button onClick={(index) => removeItem(index)} className="btn btn-primary">Got it</button>
+                  <button onClick={(index) => removeItem(index)} className="btn btn-danger">Remove</button>
                 </div>
               </div>
             ))}
