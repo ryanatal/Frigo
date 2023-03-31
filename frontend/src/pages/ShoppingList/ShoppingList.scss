@@ -118,7 +118,7 @@ h2 {
 
 @media screen and (max-width: 768px) {
   .shopping-list {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 2rem;
     height: 100%;
   }
