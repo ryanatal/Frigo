@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 265px;
     padding-top: 60px;
     width: 63%;
   }
@@ -68,8 +67,23 @@
 
 }
 
+#getIngredients:hover{
+  background-color: $hover;
+}
+
 // ----------------------------------------------------------------------------------------- //
 
+// slider
+#sliderIngredient {
+  overflow-x: scroll;
+  margin-left: 200px;;
+  margin-right: 200px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0px 20%;
+}
+
+
+// ingredientContainer
 .card-deck {
   display: flex;
   margin-right: 50px;
@@ -79,32 +93,8 @@
   width:fit-content;
 }
 
-#sliderIngredient {
-    overflow-x: scroll;
-    margin-left: 200px;;
-    margin-right: 200px;
-    scroll-snap-type: x mandatory;
-    scroll-padding: 0px 20%;
-  }
-
-
-/* Styles for the ingredient container */
-#ingredientContainer {
-    display: flex;
-    margin-right: 50px;
-    padding: 20px 0;
-    justify-content: center;
-    align-items: center; 
-    width:fit-content;
-  }
-  
-  .ingredientList{
-    overflow-y: scroll;
-    height: 15em;
-  }
-
-  /* Styles for the ingredient card */
-  .ingredientCard {
+// ingredient card
+ .ingredientCard {
     margin-bottom: 50px;
     margin-right: 10px;
     margin-left: 10px;
@@ -112,15 +102,15 @@
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
-    position: relative;
     width: 20em;
     height: 20em;
+    overflow-y:scroll ;
   }
-  
-  /*this is the styling for the ingredient cards when you hover over them*/
   .ingredientCard:hover {
     transform: translateY(-10px);
   }
+
+  // ingredient title
   .ingredientTitle {
     text-align: center;
     font-size: 24px;
@@ -128,61 +118,67 @@
     padding: 10px;
   }
   
+
+
+  // ingredient list
   .ingredientList{
-    text-align: center;
+    overflow-y: scroll;
+    height: 20em;
     padding: 10px;
+    column-count: 2;
+    list-style: none;
+    column-gap: 3em;
   }
 
-  
-  #sliderIngredient::-webkit-scrollbar {
-    display: none;
+  // ingredient list item
+  .ingredient-details {
+    padding: 1em;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    color: $secondary-color;
+    background-color: $primary-color-dark;
+    width: fit-content;
+    border-radius: 20px;
+    border: 2px solid $secondary-color;
+    margin: 0.5em;
+    margin-left:0;
+    accent-color: $button;
   }
 
-  .ingredientContent {
-    padding: 15px;
-  }
-  .ingredientButton {
-    display: none;
-  }
-  
-  .ingredientCard:hover .ingredientButton {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    left: 20px;
-    margin: 0 auto;
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-  }
 
-  @media (max-width: 600px) {
-    .ingredientCard {
-      width: 15em;
-      height: 15em;
-    }
+  // @media (max-width:600px) {
+  //   #searchContainer {
+  //     width: 125%;
+  //   }
+  //   #searchInput {
+  //     width: 125%;
+  //   }
+  //   #searchInput::placeholder {
+  //     font-size: 12px;
+  //   }
+  //   #getIngredients {
+  //     margin-left: 0;
+  //     margin-right: 0;
+  //     display: block;
+  //     width: 20%;
+  //   }
 
-    #sliderIngredient {
-      width: 100%;
-      overflow: scroll;
-    }
-    
-    .ingredientTitle {
-      font-size: 1em;
-    }
-
-    #searchInput::placeholder {
-      color: $white;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: smaller;
-    }
-
-  }
-  
+  //   #sliderIngredient {
+  //     margin-left: 10px;
+  //     width: 125%;
+  //     margin-right: 0;
+  //     overflow-y:auto;
+  //     column-count: 1;
+  //   }
+  //   .ingredientCard {
+  //     width: 15em;
+  //     height: 19em;
+  //   }
+  //   .ingredientTitle{
+  //     font-size: 13.6px;
+  //   }
+  //   .ingredient-details{
+  //     font-size: 13.3px;
+  //   }
+  // }

@@ -6,6 +6,11 @@ export const Ingredients =  [
             "Dairy",
         ]
    },
+
+   {
+        "name": "yoghurt",
+        "aisle": "Milk, Eggs, Other Dairy",
+   },
    {
         "name": "garlic",
         "aisle": "Produce",
@@ -22,7 +27,7 @@ export const Ingredients =  [
         ]
     },
     {
-        "name" : "chocolate chips",
+        "name" : "cookie",
         "aisle" : "Sweet Snacks",
         "categoryPath" : [
             "Sweet Snacks",
@@ -36,6 +41,16 @@ export const Ingredients =  [
 
     {
         "name" : "apple",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "cauliflower",
+        "aisle" : "Produce"
+    },
+
+    {
+        "name" : "mushroom",
         "aisle" : "Produce"
     },
 
