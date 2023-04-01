@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getRecipes } from "../../services/ApiService";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
-import RecipeCard from "../../components/RecipeCard/RecipeCard";
+//import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import NewCard from "../../components/NewCard/NewCard";
 
 export const Recipes = () => {
 
@@ -24,7 +25,7 @@ export const Recipes = () => {
         <div className="sliderContent" >
           {recipes.map((recipe) => (
             <div className="recipeCard">
-            <RecipeCard
+            <NewCard
               key={recipe.id}
               id={recipe.id}
             />
