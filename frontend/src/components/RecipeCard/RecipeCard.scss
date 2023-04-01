@@ -27,5 +27,39 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+}
+
+
+@media screen and (max-width: 992px){
+    #card{
+        width: 150px;
+        height: 230px;
+    }
+
+    .cardImage{
+        width: 150px;
+        height: 100px;
+        padding: 5px;
+    }
+
+    .CardBody{
+        font-size: 10px;
+        padding: 0;
+        margin-top: 0;
+
+        .food1{
+            font-size: 10px;
+            padding: 0;
+            margin-top: 0;
+        }
+    }
+
+    .CookButton{
+            font-size: 10px;
+            list-style-position: inside;
+            padding: 3px;
+            width: 100px;
+            height:5px;
+            color: $black !important;
+    }
 }

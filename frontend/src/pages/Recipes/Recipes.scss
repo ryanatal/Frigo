@@ -3,7 +3,6 @@
 
 #main{
   margin-top: 9%;
-
 }
 /* Styles for the search container */
 #searchContainer {
@@ -50,29 +49,6 @@
     border-radius: 0;
     background-position: 100% center;
   }
-
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
-    width: 10%;
-  }
-}
-
-/* Styles for the button */
-input#getIngredients {
-  font-size: 14px;
-  line-height: 18px;
-  background-color: $button;
-  color: $white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  margin-left: 20px;;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  text-transform: uppercase;
 }
 
 #slider {
@@ -99,6 +75,7 @@ input#getIngredients {
     width: 300px;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+
   
 }
 .recipeCard:hover {
@@ -108,4 +85,37 @@ input#getIngredients {
 #slider::-webkit-scrollbar {
     width: 0;
     height: 0;
+}
+
+@media screen and (max-width: 992px){
+  #main{
+    margin-top: 15%;
+    width: 500px;
+  }
+
+  #searchContainer {
+    margin-left: 10px;
+    width:50%;
+  }
+
+  #searchInput {
+    width: 50%;
+  }
+
+  #slider {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .recipeCard {
+    width: 150px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .sliderContent {
+    margin-right: 0px;
+  }
+
+
 }
