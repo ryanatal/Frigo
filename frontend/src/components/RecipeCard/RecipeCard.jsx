@@ -17,7 +17,7 @@ export const RecipeCard = ({ id }) => { // receive id as a prop
     }, [id]);
 
     return (
-        <Card>
+        <Card id="card">
             <Card.Img variant="top" src={recipe.image} className="cardImage"/>
             <Card.Body className='CardBody'>
                 <Card.Title className="food1">{recipe.title}</Card.Title>
@@ -28,7 +28,7 @@ export const RecipeCard = ({ id }) => { // receive id as a prop
                     <Button className="CookButton">Let's Cook!</Button>
                 </Link>        
             </Card.Body>
-        </Card>
+        </Card> 
     );
 };
 

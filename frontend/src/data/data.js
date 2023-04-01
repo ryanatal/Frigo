@@ -96,6 +96,14 @@ export const Recipes = [
         "readyInMinutes": 40,
         "aggregateLikes": 50,
     },
+
+    {
+        "id": 1,
+        "title": "Pasta with creamy tomato sauce ",
+        "image": require('../assets/recipe3.jpeg'),
+        "readyInMinutes": 40,
+        "aggregateLikes": 50,
+    },
 ]
 
 export const RecipesInfo = {

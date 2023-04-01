@@ -23,11 +23,13 @@ export const Recipes = () => {
       <div id="slider">
         <div className="sliderContent" >
           {recipes.map((recipe) => (
+            <div className="recipeCard">
             <RecipeCard
               key={recipe.id}
               id={recipe.id}
             />
-          ))}
+            </div>
+          ))} 
         </div>
       </div>
     </div>

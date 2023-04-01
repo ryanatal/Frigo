@@ -20,11 +20,6 @@
         background: $hover !important;
         transition: 250ms !important;
     }
-
-    @media (max-width: 768px) {
-        font-size: 14px;
-        padding: 8px;
-    }
 }
 
 .CardBody {
@@ -32,40 +27,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    @media (max-width: 768px) {
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    #main {
-        margin-top: 10%;
-    }
-
-    #searchContainer {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .sliderContent {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -ms-scroll-snap-points-x: repeat(100%);
-        -webkit-scroll-snap-points-x: repeat(100%);
-        -ms-scroll-snap-type: mandatory;
-        -webkit-scroll-snap-type: mandatory;
-    }
-
-    .recipeCard {
-        width: 45%;
-        margin-right: 2%;
-        scroll-snap-align: start;
-    }
-
-    input#getIngredients {
-        margin-left: 0;
-    }
+    
 }
