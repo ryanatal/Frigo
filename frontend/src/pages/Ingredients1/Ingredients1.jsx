@@ -25,11 +25,9 @@ export const Ingredients1 = () => {
                     <div class="ingredientCard card">
                                 <div class="ingredientContent card-body">
                                 <h4 class="card-title ingredientTitle" >{aisle[j]}</h4>
-                                <ul class="card-text ingredientList">
-                                    <form id={aisle[j]}>
+                                <div class="card-text ingredientList">
                                     {getIngredients(ingredients[j])}
-                                    </form>
-                                </ul>
+                                </div>
                             </div>
                     </div>
                 )
@@ -43,12 +41,10 @@ export const Ingredients1 = () => {
         for (let i = 0; i < ingredients.length; i++) {
             ingredientList.push(
                 <div className="ingredient-details">
-                <li key={i} className="ingredientsLI">
                     <input type="checkbox" class="ingredientCheckbox" id={ingredients[i]} name={ingredients[i]} value={ingredients[i]}></input>
                     &nbsp;
                     &nbsp;
                     <label for={ingredients[i]}>{ingredients[i]}</label>
-                </li>
                 </div>
             )
         }
@@ -58,8 +54,8 @@ export const Ingredients1 = () => {
     return (
         <>
             <div className="main">
-            <div id="searchContainer">
-                    <input id="searchInput" type="text" placeholder="Search for ingredients" />
+            <div id="searchContainerIngredients">
+                    <input id="searchInputIngredients" type="text" placeholder="Search for ingredients" />
                     <input type = "button" id = "getIngredients" value = "View Ingredients"/>
             </div>
                 &nbsp;
