@@ -28,6 +28,10 @@ export const Recipes = () => {
             <NewCard
               key={recipe.id}
               id={recipe.id}
+              image={recipe.image}
+              title={recipe.title}
+              readyInMinutes={recipe.readyInMinutes}
+              aggregateLikes={recipe.aggregateLikes}
             />
             </div>
           ))} 
