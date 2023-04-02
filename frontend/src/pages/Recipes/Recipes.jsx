@@ -17,8 +17,8 @@ export const Recipes = () => {
 
   return (
     <div id="main">
-      <div id="searchContainer">
-        <input id="searchInput" type="text" placeholder="Search for recipes" />
+      <div id="searchContainerRecipe">
+        <input id="searchInputRecipe" type="text" placeholder="Search for recipes" />
       </div>
 
       <div id="slider">

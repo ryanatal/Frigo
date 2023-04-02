@@ -5,7 +5,7 @@
   margin-top: 9%;
 }
 /* Styles for the search container */
-#searchContainer {
+#searchContainerRecipe {
   display: flex;
   align-items: center;
   justify-content: center; 
@@ -15,7 +15,7 @@
 }
 
 /* Styles for the search input */
-#searchInput {
+#searchInputRecipe {
   flex-grow: 1;
   padding: 12px 24px;
   background-color: transparent;
@@ -93,12 +93,12 @@
     width: 500px;
   }
 
-  #searchContainer {
+  #searchContainerRecipe {
     margin-left: 10px;
     width:50%;
   }
 
-  #searchInput {
+  #searchInputRecipe {
     width: 50%;
   }
 
