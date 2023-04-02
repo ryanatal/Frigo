@@ -1,14 +1,48 @@
-import { React, useState } from 'react';
+import React, { useState, useEffect } from "react";
 import './CoverRecipe.scss';
-import RecipeCard from "../../components/RecipeCard/RecipeCard";
+// import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import NewCard from "../../components/NewCard/NewCard";
 import Carousel from 'react-bootstrap/Carousel';
-import  Icon from '../../assets/PrevNextIcon.png'; 
+import Icon from '../../assets/PrevNextIcon.png';
+import { getRecipes } from "../../services/ApiService";
+
 export const CoverRecipe = () => {
     const [index, setIndex] = useState(0);
-
+    const [recipes, setRecipes] = useState([]);
     const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
+    setIndex(selectedIndex);
     };
+
+    useEffect(() => {
+        getRecipes().then((data) => {
+        setRecipes(data);
+        });
+    }, []);
+
+    const carouselItems = [];
+    for (let i = 0; i < 3; i++) {
+        const startIndex = i * 3;
+        const endIndex = startIndex + 3;
+        const recipesToShow = recipes.slice(startIndex, endIndex);
+        const carouselItem = (
+            <Carousel.Item key={i}>
+            <div className="carousel-inner-item">
+                {recipesToShow.map((recipe) => (
+                    <NewCard
+                        key={recipe.id}
+                        id={recipe.id}
+                        image={recipe.image}
+                        title={recipe.title}
+                        readyInMinutes={recipe.readyInMinutes}
+                        aggregateLikes={recipe.aggregateLikes}
+                    />
+                ))}
+            </div>
+            </Carousel.Item>
+        );
+        carouselItems.push(carouselItem);
+    }
+
 
     return (
         <div className="CoverRecipe">
@@ -24,27 +58,7 @@ export const CoverRecipe = () => {
                 `}
             </style>
             <Carousel activeIndex={index} onSelect={handleSelect}>
-                <Carousel.Item>
-                    <div className="carousel-inner">
-                        <RecipeCard id={1}/>
-                        <RecipeCard id={1}/>
-                        <RecipeCard id={1}/>
-                    </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <div className="carousel-inner">
-                        <RecipeCard id={1} />
-                        <RecipeCard id={1} />
-                        <RecipeCard id={1} />
-                    </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <div className="carousel-inner">
-                        <RecipeCard id={1} />
-                        <RecipeCard id={1} />
-                        <RecipeCard id={1} />
-                    </div>
-                </Carousel.Item>
+                    {carouselItems}
             </Carousel>
         </div>
     );

@@ -1,14 +1,16 @@
 @import "../../styles/styles.scss";
 
-.CoverRecipe {
-    width: 80%;
+.CoverRecipe{
+    width:70%;
     margin: 0 auto;
 }
 
-.carousel-inner {
+.carousel-inner-item {
     display: flex;
-    height: 90%;
+    width:70%;
+    margin: 0 auto;
 }
+
 
 //push cards inwards more and fix heights of each cards to be fixed 
 //allow the icons to be visible and not hidden by cards
