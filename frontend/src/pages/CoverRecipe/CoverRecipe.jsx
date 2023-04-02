@@ -26,9 +26,9 @@ export const CoverRecipe = () => {
         const recipesToShow = recipes.slice(startIndex, endIndex);
         const carouselItem = (
             <Carousel.Item key={i}>
-            <div className="carousel-inner-item">
+            <div className="carousel-inner-items">
                 {recipesToShow.map((recipe) => (
-                    <NewCard
+                    <NewCard className="Card-In-Carousel"
                         key={recipe.id}
                         id={recipe.id}
                         image={recipe.image}
@@ -57,9 +57,11 @@ export const CoverRecipe = () => {
                     }
                 `}
             </style>
+            <h1 className="Featured-title">Featured Recipes!</h1>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                     {carouselItems}
             </Carousel>
+            
         </div>
     );
 };
