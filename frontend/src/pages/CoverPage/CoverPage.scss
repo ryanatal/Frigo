@@ -7,11 +7,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-image: url("../../assets/Background.png");
-  background-size: cover;
-  background-position: left;
-
 }
+
 .title{
     font-size: 4rem;
     font-weight: 600;
@@ -20,6 +17,7 @@
     color: white;
     text-align: center;
 }
+
 #content {
   position: relative;
   text-align: center;
@@ -36,8 +34,6 @@
   color: white;
   margin-left: 10%;
 }
-
-
 
 .subtitle {
   font-size: 2rem;

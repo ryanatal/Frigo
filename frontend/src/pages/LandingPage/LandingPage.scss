@@ -2,3 +2,15 @@
     display: flex;
     flex-direction: column;
 }
+
+.CoverRecipe-Container{
+    background-image: url("../../assets/Background2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.CoverPage-Container{
+    background-image: url("../../assets/Background.png");
+    background-size: cover;
+    background-position: center;
+}

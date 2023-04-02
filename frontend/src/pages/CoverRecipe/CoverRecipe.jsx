@@ -46,7 +46,7 @@ export const CoverRecipe = () => {
 
     return (
         <div className="CoverRecipe">
-            <style>
+            {/* <style>
                 {`
                     .carousel-control-prev-icon{
                         background-image: url(${Icon});
@@ -56,8 +56,8 @@ export const CoverRecipe = () => {
                         background-image: url(${Icon});
                     }
                 `}
-            </style>
-            <h1 className="Featured-title">Featured Recipes!</h1>
+            </style> */}
+            <h1 className="Featured-title type-animation animating">Featured Recipes!</h1>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                     {carouselItems}
             </Carousel>

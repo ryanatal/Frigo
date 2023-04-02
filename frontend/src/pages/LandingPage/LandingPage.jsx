@@ -9,8 +9,10 @@ const LandingPage = () => {
 
   return (
     <div className="Landing">
-      <CoverPage coverRecipeRef={coverRecipeRef} />
-      <div ref={coverRecipeRef}>
+      <div className="CoverPage-Container">
+        <CoverPage coverRecipeRef={coverRecipeRef} />
+      </div>
+      <div ref={coverRecipeRef} className='CoverRecipe-Container'>
         <CoverRecipe />
       </div>
     </div>
