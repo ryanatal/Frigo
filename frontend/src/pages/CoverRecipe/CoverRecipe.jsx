@@ -3,7 +3,7 @@ import './CoverRecipe.scss';
 // import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import NewCard from "../../components/NewCard/NewCard";
 import Carousel from 'react-bootstrap/Carousel';
-import Icon from '../../assets/PrevNextIcon.png';
+// import Icon from '../../assets/PrevNextIcon.png';
 import { getRecipes } from "../../services/ApiService";
 
 export const CoverRecipe = () => {
