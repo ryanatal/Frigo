@@ -9,9 +9,9 @@ const CoverPage = ({ coverRecipeRef }) => {
 
   return (
     <div className="cover-page">
-      <div id="content" class="container"> 
-        <h1 className='title'>Frigo</h1>
-        <p className="subtitle">Discover the world of food</p>
+      <div id="content" className="container-for-Landing"> 
+        <h1 className='title-for-Landing'>Frigo</h1>
+        <p className="subtitle-for-Landing">Discover the world of food</p>
         <button className="IngredientsButton">Ingredients!</button>
       </div>
       <div className='arrow' onClick={handleArrowClick}>          

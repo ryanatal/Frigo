@@ -3,14 +3,39 @@
     flex-direction: column;
 }
 
+.CoverPage-Container{
+    background-image: url("../../assets/Background.png");
+    background-size: cover;
+    background-position: center;
+}
+
 .CoverRecipe-Container{
     background-image: url("../../assets/Background2.jpg");
     background-size: cover;
     background-position: center;
 }
 
-.CoverPage-Container{
-    background-image: url("../../assets/Background.png");
-    background-size: cover;
-    background-position: center;
+
+
+@media only screen and (max-width: 768px) {
+    .CoverPage-Container{
+        background-image: url("../../assets/BackgroundMobile.png");
+        background-size: cover;
+        background-position: center;
+    }
+    
+   
 }
+  
+  @media only screen and (max-width: 992px) {
+    .title-for-Landing {
+      font-size: 4rem;
+      margin-bottom: 5%;
+    }
+  
+    #content {
+      width: 70%;
+      height: 40%;
+      padding: 20px;
+    }
+  }
