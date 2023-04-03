@@ -129,6 +129,7 @@
     flex-wrap: wrap;
     text-align: justify;
   }
+  
 
   // ingredient list item
   .ingredient-details {
@@ -146,6 +147,9 @@
     margin: 0.5em;
     margin-left:0;
     accent-color: $button;
+  }
+  .ingredient-details::-webkit-scrollbar {
+    display: none;
   }
 
 
