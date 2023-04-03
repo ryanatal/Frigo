@@ -51,6 +51,7 @@
   }
 }
 
+/* Styles for the slider */
 #slider {
     overflow-x: scroll;
     margin-left: 200px;;
@@ -82,10 +83,7 @@
     transform: translateY(-10px);
   }
 
-#slider::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
+
 
 @media screen and (max-width: 992px){
   #main{
@@ -94,7 +92,8 @@
   }
 
   #searchContainerRecipe {
-    margin-left: 10px;
+    margin-left: 25%;
+    margin-top: 15%;
     width:50%;
   }
 
@@ -103,8 +102,8 @@
   }
 
   #slider {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   .recipeCard {
@@ -114,7 +113,11 @@
   }
 
   .sliderContent {
-    margin-right: 0px;
+    margin-right: 50px;
+    padding: 20px 0;
+    justify-content: center;
+    align-items: center; 
+    width:fit-content;
   }
 
 
