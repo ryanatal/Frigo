@@ -124,10 +124,15 @@ polygon {
     display:none;
   }
 
+  .cover-page{
+    justify-content: center;
+  }
+
   #content {
     width: 80%;
     height: 40%;
     padding: 20px;
+    margin: 0;
   }
  }
 
