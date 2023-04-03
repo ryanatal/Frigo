@@ -1,13 +1,15 @@
 import React from 'react';
 import './NewCard.scss';
 import { Link } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const NewCard = ({ id, image, title, readyInMinutes, aggregateLikes }) => {
+
   return (
     <div className="container">
-      <div className="row gy-3 my-3">
-        <div className="col-sm-6 col-md-4 col-lg-3">
+      <div className="">{/*row gy-3 my-3*/}
+        <div className="">{/*col-sm-6 col-md-4 col-lg-3*/}
           <div className="card">
             <img src={image} className="card-img-top" alt="recipe" />
             <div className="card-body">
