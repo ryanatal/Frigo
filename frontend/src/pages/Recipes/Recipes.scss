@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 #main{
-  margin-top: 9%;
+  margin-top: 10vh;
 }
 /* Styles for the search container */
 #searchContainerRecipe {
   display: flex;
   align-items: center;
-  justify-content: center; 
-  margin-left: 265px;
+  justify-content: center;
+  margin: 0 auto;
   padding-top: 60px;
   width: 63%;
 }
@@ -54,99 +54,35 @@
 /* Styles for the slider */
 #slider {
     overflow-x: scroll;
-    margin-left: 200px;;
-    margin-right: 200px;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; 
+    width:80%;
+    margin: 0 auto;
 }
 
 .sliderContent {
     display: flex;
-    margin-right: 50px;
-    padding: 20px 0;
+    padding: 2% 0;
     justify-content: center;
     align-items: center; 
     width:fit-content;
 }
 
 .recipeCard {
-    margin-bottom: 50px;
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 300px;
+    margin: 10px;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-
-  
+    transition: transform 150ms ease-in-out
 }
 .recipeCard:hover {
     transform: translateY(-10px);
   }
 
 
-
-
-  @media screen and (max-width: 768px){
+  @media only screen and (max-width: 991px) {
     #main{
-      margin-top: 15%;
-      width: 500px;
-      margin-right: 20%;
-      margin-left: 20%;
+      margin-top: 12%;
     }
+    #slider{
+      width: 100%;
+    }
+  }
   
-    #searchContainerRecipe {
-      margin-left: 25%;
-      margin-top: 15%;
-      width:50%;
-    }
-  
-    #searchInputRecipe {
-      width: 50%;
-    }
-  
-    #slider {
-      margin-left: 40px;
-      margin-right: 40px;
-    }
-  
-    .recipeCard {
-      width: 150px;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-  
-    .sliderContent {
-      margin-right: 50px;
-      padding: 20px 0;
-    }
-  }
-
-@media screen and (max-width: 992px){
-  #main{
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 15%;
-    width: 500px;
-  }
-
-  #searchContainerRecipe {
-    margin-left: 25%;
-    margin-top: 15%;
-    width:50%;
-  }
-
-  #searchInputRecipe {
-    width: 50%;
-  }
-
-  #slider {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .recipeCard {
-    width: 150px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-}

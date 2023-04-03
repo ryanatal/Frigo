@@ -15,7 +15,7 @@ export const NewCard = ({ id, image, title, readyInMinutes, aggregateLikes }) =>
             <div className="card-body">
               <h5 className="card-title">{title}</h5>
               <p className="card-text">
-                ETA: {readyInMinutes} &nbsp; &nbsp; Likes: {aggregateLikes}
+                ETA: {readyInMinutes}min &nbsp; &nbsp; Likes: {aggregateLikes}
               </p>
               <Link to={`/recipes/${id}`} className="btn btn-primary">
                 Let's Cook!

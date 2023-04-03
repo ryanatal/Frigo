@@ -25,50 +25,48 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .card {
-      width: 150px;
-      height: 200px;
-    }
 
-    .card-img-top{
-      width: 100%;
-      height: 100px;
-    }
-
-    .card-title{
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      font-size: 1rem;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
+@media only screen and (max-width: 767px) {
+  .card {
+    width: 120px;
+    height: auto;
   }
-
-  @media (max-width: 992px) {
-    .card {
-      width: 150px;
-      height: 200px;
-    }
-
-    .card-img-top{
-      width: 100%;
-      height: 100px;
-    }
-
-    .card-title{
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      font-size: 1rem;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
+  .card-img-top {
+    height: 100px;
   }
+  .container{
+    padding: 1% !important;
+  }
+  .card-title{
+    font-size: 0.8rem;
+  }
+  .card-text{
+    font-size: 0.7rem;
+  }
+  .btn-primary{
+    font-size: 0.6rem !important;
+  }
+}
 
-  
-  
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .card {
+    width: 230px;
+    height: auto;
+  }
+  .card-img-top {
+    height: 150px;
+  }
+  .container{
+    padding: 2% !important;
+  }
+  .card-title{
+    font-size: 1rem;
+  }
+  .card-text{
+    font-size: 0.9rem;
+  }
+  .btn-primary{
+    font-size: 0.8rem !important;
+  }
+}
 
