@@ -1,14 +1,18 @@
 @import "../../styles/styles.scss";
 
 .CoverRecipe{
-    width: 80%;
     margin: 0 auto;
     height: 89vh;
 }
 
-// .Card-In-Carousel{
-    
-// }
+.carousel{
+  width:80%;
+  margin: 0 auto;
+}
+
+.carousel-inner{
+  margin: 0 auto;
+}
 
 .carousel-inner-items {
     display: flex;
@@ -17,34 +21,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .CoverRecipe{
-        width: 100%;
-    }
-    .carousel-inner-item {
-        width:50%;
-    }
-    .Featured-title{
-        font-size: 1.5rem;
-    }
-}
-
-// /* Small devices (portrait tablets and large phones, 600px and up) */
-// @media only screen and (min-width: 600px) {...}
-
-// /* Medium devices (landscape tablets, 768px and up) */
-// @media only screen and (min-width: 768px) {...}
-
-// /* Large devices (laptops/desktops, 992px and up) */
-// @media only screen and (min-width: 992px) {...}
-
-// /* Extra large devices (large laptops and desktops, 1200px and up) */
-// @media only screen and (min-width: 1200px) {...}
-
 
 .Featured-title{
     font-size: 2.5rem;
@@ -57,8 +33,6 @@
     -webkit-animation: blink 12s infinite;
     margin: 0;
 }
-
-
 
 @-webkit-keyframes blink {
   20%,
@@ -100,5 +74,16 @@
     100% {
     text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     color: #fff6a9;
+  }
+}
+
+.carousel-indicators{
+  display: none !important;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .carousel{
+    width: 100%;
   }
 }
