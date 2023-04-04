@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 #main{
-  margin-top: 10vh;
+  margin-top: 12vh;
 }
 /* Styles for the search container */
 #searchContainerRecipe {
@@ -77,12 +77,18 @@
   }
 
 
-  @media only screen and (max-width: 991px) {
-    #main{
-      margin-top: 12%;
-    }
-    #slider{
-      width: 100%;
-    }
+@media only screen and (max-width: 991px) {
+  #main{
+    margin-top:14vh;
   }
+  #slider{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #main{
+    margin-top: 12vh;
+  }
+}
   
