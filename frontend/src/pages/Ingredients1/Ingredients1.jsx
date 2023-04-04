@@ -53,7 +53,7 @@ export const Ingredients1 = () => {
 
     return (
         <>
-            <div className="main">
+          
             <div id="searchContainerIngredients">
                     <input id="searchInputIngredients" type="text" placeholder="Search for ingredients" />
                     <input type = "button" id = "getIngredients" value = "View Ingredients"/>
@@ -65,7 +65,7 @@ export const Ingredients1 = () => {
                         {getList(ingredientData)}
                     </div>
                 </div>
-                </div>
+
         </>
     );
 };

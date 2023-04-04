@@ -1,11 +1,5 @@
 @import "../../styles/styles.scss";
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 /* Styles for the search container */
 #searchContainerIngredients {
@@ -14,6 +8,8 @@
     justify-content: center;
     padding-top: 60px;
     width: 63%;
+    margin:0 auto;
+    flex-direction: row;
   }
   
 /* Styles for the search input */
@@ -85,8 +81,8 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scroll-padding: 0px 20%;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
 }
 
 
@@ -160,54 +156,48 @@
 
 
 
-  @media (max-width:600px) {
-    .card-deck {
-      margin-right: 0;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: fit-content;
+@media (max-width: 912px){
+  #sliderIngredient {
+    width: 100%;
+  }
+  .ingredientCard {
+    width: 17em !important;
+    height: max-content !important;
+  }
+
+
+  #searchContainerIngredients {
+    width: 90%;
+  }
+
+}
+
+  @media (max-width:767px) {
+
+    #searchInputIngredients, #getIngredients{
+      padding: 10px 10px;
+      font-size: 10px;
     }
 
-    #searchContainerIngredients {
-      margin-left: 4em;
-      margin-right: 0;
-      width: 100%;
-      height: fit-content;
-      align-items: center;
-    }
-
-    #searchInputIngredients {
-      font-size:12px;
-    }
-
-    #getIngredients {
-      font-size: 12px;
-    }
-
-    #sliderIngredient {
-      margin-left: 10px;
-      width: 125%;
-      margin-right: 0;
-      overflow-y:auto;
-      column-count: 1;
-    }
     .ingredientCard {
-      width: 16em;
-      height: 19em;
+      width: 12em !important;
+      height: max-content !important;
     }
+
     .ingredientTitle{
-      font-size: 11.8px;
+      font-size: 9px !important;
       text-decoration: underline;
     }
-
-    .ingredientList{
-      height: 15em;
-      margin:0;
-    }
-
     .ingredient-details{
-      font-size: 13.3px;
-      width:90%;
+      font-size: 9px !important;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 280px){
+    #searchContainerIngredients{
+      width: 100%;
+      display: flexbox;
+      flex-direction: column;
     }
   }
