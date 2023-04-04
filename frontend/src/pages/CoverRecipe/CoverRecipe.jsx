@@ -1,14 +1,14 @@
+
 import React, { useState, useEffect } from "react";
 import './CoverRecipe.scss';
-// import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import NewCard from "../../components/NewCard/NewCard";
 import Carousel from 'react-bootstrap/Carousel';
-// import Icon from '../../assets/PrevNextIcon.png';
 import { getRecipes } from "../../services/ApiService";
 
 export const CoverRecipe = () => {
     const [index, setIndex] = useState(0);
     const [recipes, setRecipes] = useState([]);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
     };
@@ -19,10 +19,27 @@ export const CoverRecipe = () => {
         });
     }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const getCardsPerSlide = () => {
+        return windowWidth >= 768 ? 3 : 2;
+    };
+
     const carouselItems = [];
-    for (let i = 0; i < 3; i++) {
-        const startIndex = i * 3;
-        const endIndex = startIndex + 3;
+    const numOfCards = getCardsPerSlide();
+    const numOfSlides = Math.ceil(recipes.length / numOfCards);
+
+    for (let i = 0; i < numOfSlides; i++) {
+        const startIndex = i * numOfCards;
+        const endIndex = startIndex + numOfCards;
         const recipesToShow = recipes.slice(startIndex, endIndex);
         const carouselItem = (
             <Carousel.Item key={i}>
@@ -43,25 +60,12 @@ export const CoverRecipe = () => {
         carouselItems.push(carouselItem);
     }
 
-
     return (
         <div className="CoverRecipe">
-            {/* <style>
-                {`
-                    .carousel-control-prev-icon{
-                        background-image: url(${Icon});
-                    }
-                    .carousel-control-next-icon{
-                        transform: scaleX(-1);
-                        background-image: url(${Icon});
-                    }
-                `}
-            </style> */}
             <h1 className="Featured-title type-animation animating">Featured Recipes!</h1>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                     {carouselItems}
             </Carousel>
-            
         </div>
     );
 };
