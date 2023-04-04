@@ -9,7 +9,7 @@
 .Authentication-Container{
   border-radius: 20px;
   width: 50%;
-  height: 50%;
+  height: 70%;
   padding: 40px;
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
@@ -33,16 +33,17 @@
   font-size: 3vw;
 }
 
-.Authentication-Form input[type=text] {
-  font-size: 1vw;
-  padding: 1vw 2vw;
-  margin: 0.5vw;
+.Authentication-Form input:focus {
+  background: transparent;
+  color: $secondary-color;
 }
-.Authentication-Form input[type=password] {
-  font-size: 1vw;
-  padding: 1vw 2vw;
-  margin: 0.5vw;
-}
+
+// .Authentication-Form input[type=text] {
+//   font-size: 1vw;
+// }
+// .Authentication-Form input[type=password] {
+//   font-size: 1vw;
+// }
 .Authentication-Form button[type=submit] {
   font-size: 1vw;
   background-color: $button;
@@ -66,6 +67,11 @@
 
 .Switching-Button{
   color: $button;
+  text-decoration: none;
+}
+
+.Switching-Button:hover{
+  color: $secondary-color;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -76,20 +82,10 @@
     width: 70%;
     height: 70%;
     margin-left: 15%;
-    margin-top: 15vh;
+    margin-top: 17vh;
   }
   .Authentication-Form h2{
     font-size: 8vw;
-  }
-  .Authentication-Form input[type=text] {
-    font-size: 4vw;
-    padding: 2vw 2vw;
-    margin: 2vw;
-  }
-  .Authentication-Form input[type=password] {
-    font-size: 4vw;
-    padding: 2vw 2vw;
-    margin: 2vw;
   }
   .Authentication-Form button[type=submit] {
     font-size: 2vw;
@@ -109,19 +105,11 @@
     margin-left: 0;
     margin-top: 0;
   }
-  .Authentication-Form input[type=text] {
-    font-size:4vw;
-    
-  }
-  .Authentication-Form input[type=password] {
-    font-size:4vw;
-  }
   .Authentication-Form button[type=submit] {
-    font-size: 4vw;
+    font-size: 3vw;
     margin: 2vw;
   }
   .switch-authentication{
     font-size: 3vw;
   }
-  
 }

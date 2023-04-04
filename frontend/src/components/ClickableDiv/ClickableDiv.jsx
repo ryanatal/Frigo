@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./ClickableDiv.scss";
 
 export const ClickableDiv = ({ items, selectedItems, setSelectedItems }) => {
