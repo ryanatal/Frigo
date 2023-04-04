@@ -10,7 +10,7 @@
 }
 
 .title-for-Landing{
-    font-size: 4rem;
+    font-size: 6vw;
     font-weight: 600;
     font-family: 'Playfair Display', serif;
     margin-bottom: 30px;
@@ -36,7 +36,7 @@
 }
 
 .subtitle-for-Landing {
-  font-size: 2rem;
+  font-size: 2vw;
   margin-bottom: 30px;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
@@ -48,11 +48,10 @@
     border: none;
     border-radius: 30px;
     padding: 10px 30px;
-    font-size: 1.5rem;
+    font-size: 2vw;
     font-weight: 600;
     cursor: pointer;
-    height: 44px;
-    width: 180px;
+    width: 15vw;
     margin-top: 30px;
     text-align: center;
     box-sizing: border-box;
@@ -114,12 +113,15 @@ polygon {
 }
 
 
- @media only screen and (max-width: 768px) {
-  .title-for-Landing {
-    font-size: 4rem;
-    margin-bottom: 15%;
+@media only screen and (max-width: 992px) {
+  #content {
+    width: 70%;
+    height: 40%;
+    padding: 20px;
   }
+}
 
+@media only screen and (max-width: 768px) {
   .subtitle-for-Landing {
     display:none;
   }
@@ -134,17 +136,8 @@ polygon {
     padding: 20px;
     margin: 0;
   }
+  .IngredientsButton{
+    font-size: 3vw;
+    width: 23vw;
+  }
  }
-
-@media only screen and (max-width: 992px) {
-  .title-for-Landing {
-    font-size: 4rem;
-    margin-bottom: 5%;
-  }
-
-  #content {
-    width: 70%;
-    height: 40%;
-    padding: 20px;
-  }
-}
