@@ -5,9 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header1 from "./components/Header1/Header1";
 import Home from "./pages/Home/Home";
 import { ShoppingList} from "./pages/ShoppingList/ShoppingList";
-import Authentication from "./pages/Authentication/Authentication";
-// import SignUp from "./pages/Authentication/Signup";
-// import Login from "./pages/Authentication/Login";
+import SignUp from "./pages/Authentication/Signup";
+import Login from "./pages/Authentication/Login";
 //import Ingredients from "./pages/Ingredients/Ingredients";
 import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 
@@ -31,9 +30,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/shopping" element={<ShoppingList />} />
-          {/* <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} /> */}
-          <Route path="/authentication" element={<Authentication />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/recipes/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
           <Route path="landing" element={<LandingPage />} />
