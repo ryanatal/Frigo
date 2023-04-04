@@ -1,14 +1,12 @@
 @import "../../styles/styles.scss";
 
 .aboutus{
-    // height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     background-image: url("../../assets/Background.png");
     background-size: cover;
-    background-position: left;
-    //height takes all the screen
+    background-position: center;
     height: 100vh;
 }
 
@@ -17,7 +15,6 @@
     border-radius: 20px;
     width: 50%;
     height: fit-content;
-    padding: 15px 20px;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -25,55 +22,89 @@
     align-items: center;
     flex-direction: column;
     color: white;
-    margin: 11rem 0 5rem 5rem;
+    margin-top:20vh;
+    margin-left: 5vw;;
+
 }
 
-
+.about-us-container h2{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
 
 .team-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .team-member {
-    margin: 20px;
+    margin: 2vw;
     flex: 1 0 calc(50% - 40px);
     max-width: calc(50% - 90px);
 }
 
 .team-member img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 9vw;
 }
 
 .team-member h3 {
     margin-top: 10px;
+    font-size: 1rem;
 }
 
 .team-member p {
     margin-top: 5px;
+    font-size: 0.8rem;
 }
-@media (max-width: 600px) {
-    .aboutus{
-        height: max-content;
-    }
 
-    .about-us-container {
-        margin-left: 0;
-        width: 100%;
-        height: max-content;
-    }
 
-    .team-container {
-        flex-direction: column;
-    }
+  
+@media only screen and (max-width: 992px) {
+  .aboutus{
+      background-image: url("../../assets/BackgroundMobile.png");
+      height: auto;
+  }
+  .about-us-container {
+      margin: 0 auto;
+      margin-top:23vh;
+      width: 90%;
+      height: max-content;
+  }
+  .team-member img {
+      width: 10vw;
+  }
+  
+  .team-member h3 {
+      font-size: 1.5rem;
+  }
+  
+  .team-member p {
+      font-size: 1rem;
+  }
+}
 
+@media only screen and (max-width: 768px) {
+  
+  .aboutus{
+      height: fit-content;
+      background-image: url("../../assets/BackgroundMobile.png");
+  }
+ }
+
+@media only screen and (max-width: 600px) {
+    .about-us-container{
+        margin-top: 20vh;
+    }
     .team-member {
         flex: 1 0 100%;
         max-width: 100%;
+    }
+    
+    .team-member img{
+        width: 30vw;
     }
     
 }
