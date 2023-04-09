@@ -43,11 +43,13 @@
     margin: 2vw;
     flex: 1 0 calc(50% - 40px);
     max-width: calc(50% - 90px);
+    
 }
 
 .team-member img {
     border-radius: 50%;
     width: 9vw;
+    background-color: $about-us-image;
 }
 
 .team-member h3 {
