@@ -5,8 +5,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
+import { verifyToken } from "./middleware/auth.js";
 
 import authRoutes from "./routes/auth.js";
+import pantryRoutes from "./routes/pantry.js";
+import shoppingListRoutes from "./routes/shoppinglist.js";
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -21,6 +24,8 @@ app.use(cors());
 
 /* ROUTES */
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/pantry", verifyToken, pantryRoutes);
+app.use("/api/v1/shoppinglist", verifyToken, shoppingListRoutes);
 app.use("*", (req, res) => res.status(404).json({ message: "Not Found" }));
 
 /* MONGOOSE */
