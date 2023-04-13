@@ -17,12 +17,13 @@ export const Ingredients2 = () => {
 
 
     // axios function for the api call
-
+    const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
+    
     // gets lists of aisles
     const getAisle = (idData) => {
         let aisle = [];
-        idData.array.forEach(id => {
-            axios.get("https://api.spoonacular.com/food/ingredients/"+{id}+"/information").then((response) => {
+        idData.forEach(id => {
+            axios.get("https://api.spoonacular.com/food/ingredients/"+{id}+"/information?apiKey="+{apiKey}).then((response) => {
                 if (response.data.aisle != null && !aisle.includes(response.data.aisle)) {
                     aisle.push(response.data.aisle);
                 }
@@ -38,8 +39,8 @@ export const Ingredients2 = () => {
         let aisles = getAisle(idData);
         aisles.forEach((aisle) => {
             let ingredientList = [];
-            idData.array.forEach(id => {   
-                axios.get("https://api.spoonacular.com/food/ingredients/"+{id}+"/information").then((response) => {
+            idData.forEach(id => {   
+                axios.get("https://api.spoonacular.com/food/ingredients/"+{id}+"/information?apiKey="+{apiKey}).then((response) => {
                     if (response.data.aisle === aisle) {
                         ingredientList.push(response.data.name);
                     }

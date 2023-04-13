@@ -89,7 +89,7 @@ export const getAisle = async () => {
 export const getID = async () => {
     const module = await import("../data/ingredients.js");
     let ids = [];
-    module.forEach((ingredient) => {
+    module.ingredients.forEach((ingredient) => {
         ids.push(ingredient.id);
     });
     return ids;
