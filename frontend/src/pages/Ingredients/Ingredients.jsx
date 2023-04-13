@@ -1,7 +1,7 @@
 import { getIngredientsList } from "../../services/ApiService";
 import { useState, useEffect } from "react";
 
-import "./Ingredients2.scss";
+import "./Ingredients.scss";
 
 export const Ingredients2 = () => {
     const [ingredientData, setIngredientData] = useState([]);
@@ -42,10 +42,9 @@ export const Ingredients2 = () => {
                         <div className="ingredientContent card-body">
                             <h4 className="card-title ingredientTitle">Ingredients</h4>
                             <div className="card-text ingredientList">
-                                {filteredIngredientData.map((ingredient) => (
+                                {filteredIngredientData.map((ingredient, index) => (
                                     <div className="ingredient-details">
-                                        <input
-                                            type="checkbox"
+                                        <input key={index} type="checkbox"
                                             className="ingredientCheckbox"
                                             id={ingredient.id}
                                             name={ingredient.ingredient}
@@ -53,7 +52,7 @@ export const Ingredients2 = () => {
                                         />
                                         &nbsp;
                                         &nbsp;
-                                        <label htmlFor={ingredient.ingredient}>{ingredient.ingredient}</label>
+                                        <label key={index} for={ingredient.ingredient}>{ingredient.ingredient}</label>
                                     </div>
                                 ))}
                             </div>
