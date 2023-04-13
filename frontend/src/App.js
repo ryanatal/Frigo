@@ -7,7 +7,6 @@ import Home from "./pages/Home/Home";
 import { ShoppingList} from "./pages/ShoppingList/ShoppingList";
 import SignUp from "./pages/Authentication/Signup";
 import Login from "./pages/Authentication/Login";
-//import Ingredients from "./pages/Ingredients/Ingredients";
 import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
 
 import CoverPage from "./pages/CoverPage/CoverPage";

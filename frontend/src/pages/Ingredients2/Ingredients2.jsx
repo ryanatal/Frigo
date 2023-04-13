@@ -1,21 +1,60 @@
-import { getAisle } from "../../services/ApiService";
+import { getID } from "../../services/ApiService";
 import { useState, useEffect } from "react";
 
 import axios from "axios";
-import "./Ingredients1.scss";
+import "../Ingredients1/Ingredients1.scss";
 
-export const Ingredients1 = () => {
-    const [ingredientData, setIngredientData] = useState([]);
+export const Ingredients2 = () => {
+    const [idData, setIdData] = useState([]);
 
     useEffect(() => {
-      async function fetchIngredientData() {
-        const data = await getAisle();
-        setIngredientData(data);
-      }
-      fetchIngredientData();
+        async function fetchIdData() {
+            const data = await getID();
+            setIdData(data);
+        }
+        fetchIdData();
     }, []);
 
-    const getList = (ingredientData) => {
+
+    // axios function for the api call
+
+    // gets lists of aisles
+    const getAisle = (idData) => {
+        let aisle = [];
+        idData.array.forEach(id => {
+            axios.get("https://api.spoonacular.com/food/ingredients/"+{id}+"/information").then((response) => {
+                if (response.data.aisle != null && !aisle.includes(response.data.aisle)) {
+                    aisle.push(response.data.aisle);
+                }
+            });
+        });
+        return aisle;
+    };
+
+
+    // gets lists of ingredients based on aisle
+    const getIngredients = (idData) => {
+        let ingredients = [];
+        let aisles = getAisle(idData);
+        aisles.forEach((aisle) => {
+            let ingredientList = [];
+            idData.array.forEach(id => {   
+                axios.get("https://api.spoonacular.com/food/ingredients/"+{id}+"/information").then((response) => {
+                    if (response.data.aisle === aisle) {
+                        ingredientList.push(response.data.name);
+                    }
+                });
+            });
+            ingredients.push(ingredientList);
+        });
+        const list = [ aisles, ingredients ];
+        return list;
+    };
+
+
+    // maps the aisles to the page
+    const getList = (idData) => {
+        let ingredientData = getIngredients(idData);
         for (let i = 0; i < ingredientData.length; i++) {
             let aisle = ingredientData[0];
             let ingredients = ingredientData[1];
@@ -37,7 +76,8 @@ export const Ingredients1 = () => {
         }
     };
 
-    const getIngredients = (ingredients) => {
+    // maps the ingredients to the page
+    const getIngredientList = (ingredients) => {
         let ingredientList = [];
         for (let i = 0; i < ingredients.length; i++) {
             ingredientList.push(
@@ -63,7 +103,7 @@ export const Ingredients1 = () => {
                 &nbsp;
                 <div id="sliderIngredient">
                     <div className="card-deck">
-                        {getList(ingredientData)}
+                        {getList(idData)}
                     </div>
                 </div>
 
@@ -71,4 +111,4 @@ export const Ingredients1 = () => {
     );
 };
 
-export default Ingredients1;
+export default Ingredients2;
