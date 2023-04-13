@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import './CoverRecipe.scss';
 import NewCard from "../../components/NewCard/NewCard";
 import Carousel from 'react-bootstrap/Carousel';
-import { getRecipes } from "../../services/ApiService";
+// import { getRecipes } from "../../services/ApiService";
+import Axios from 'axios';
 
 export const CoverRecipe = () => {
     const [index, setIndex] = useState(0);
@@ -14,10 +14,11 @@ export const CoverRecipe = () => {
     };
 
     useEffect(() => {
-        getRecipes().then((data) => {
-        setRecipes(data);
-        });
-    }, []);
+        // more recipes per the slider, at the end of the link, increase the "number"
+        Axios.get('https://api.spoonacular.com/recipes/random?apiKey=a5d3501482ba4254a0c113e6c551b9e1&number=12')
+          .then(response => setRecipes(response.data.recipes))
+          .catch(err => console.log(err))
+      }, [])
 
     useEffect(() => {
         const handleResize = () => {

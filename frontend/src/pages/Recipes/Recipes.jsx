@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getRecipes } from "../../services/ApiService";
+// import { getRecipes } from "../../services/ApiService";
+import Axios from 'axios';
+
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 //import RecipeCard from "../../components/RecipeCard/RecipeCard";
@@ -10,11 +12,12 @@ export const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    getRecipes().then((data) => {
-      setRecipes(data);
-    });
-  }, []);
-
+    // if you want more recipes per the slider at the end of the link increase the "number"
+    Axios.get('https://api.spoonacular.com/recipes/random?apiKey=a5d3501482ba4254a0c113e6c551b9e1&number=5')
+      .then(response => setRecipes(response.data.recipes))
+      .catch(err => console.log(err))
+  }, [])
+  
   return (
     <div id="main">
       <div id="searchContainerRecipe">
@@ -23,6 +26,7 @@ export const Recipes = () => {
 
       <div id="slider">
         <div className="sliderContent" >
+          
           {recipes.map((recipe) => (
             <div className="recipeCard">
             <NewCard
@@ -35,6 +39,7 @@ export const Recipes = () => {
             />
             </div>
           ))} 
+
         </div>
       </div>
     </div>
