@@ -1,4 +1,4 @@
-[
+export const ingredients = [
     {
       ingredient: "5 spice powder",
       id: 1002002
