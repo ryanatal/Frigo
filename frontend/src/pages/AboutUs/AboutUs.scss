@@ -8,6 +8,7 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
+
 }
 
 .about-us-container {
@@ -22,7 +23,7 @@
     align-items: center;
     flex-direction: column;
     color: white;
-    margin-top:20vh;
+    margin-top: 20vh;
     margin-left: 5vw;;
 
 }
@@ -36,38 +37,35 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 30px;
 }
 
 .team-member {
-    margin: 2vw;
-    flex: 1 0 calc(50% - 40px);
-    max-width: calc(50% - 90px);
-    
+    margin: 1vw; /* adjust margin */
+    flex: 1 0 calc(33.33% - 20px); /* adjust flex value */
+    max-width: calc(33.33% - 10px); /* adjust max-width value */
 }
 
 .team-member img {
     border-radius: 50%;
-    width: 9vw;
+    width: 40%;
     background-color: $about-us-image;
 }
 
 .team-member h3 {
     margin-top: 10px;
-    font-size: 1rem;
+    font-size: 1rem; /* adjust font-size */
 }
 
 .team-member p {
     margin-top: 5px;
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* adjust font-size */
 }
-
 
   
 @media only screen and (max-width: 992px) {
   .aboutus{
       background-image: url("../../assets/BackgroundMobile.png");
-      height: auto;
+
   }
   .about-us-container {
       margin: 0 auto;
@@ -89,14 +87,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-  
-  .aboutus{
-      height: fit-content;
-      background-image: url("../../assets/BackgroundMobile.png");
-  }
- }
-
-@media only screen and (max-width: 600px) {
+    .aboutus{
+        height: fit-content;
+        background-image: url("../../assets/BackgroundMobile.png");
+    }
     .about-us-container{
         margin-top: 20vh;
     }
@@ -104,7 +98,7 @@
         flex: 1 0 100%;
         max-width: 100%;
     }
-    
+
     .team-member img{
         width: 30vw;
     }
