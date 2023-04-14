@@ -34,7 +34,7 @@ export const Ingredients2 = () => {
                     value={searchQuery}
                     onChange={handleSearchChange}
                 />
-                <input type="button" id="getIngredients" value="View Ingredients" />
+                {/* <input type="button" id="getIngredients" value="View Ingredients" /> */}
             </div>
             <div id="sliderIngredient">
                 <div className="card-deck">
