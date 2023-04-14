@@ -1,10 +1,12 @@
 import axios from "axios";
 
 const BASE_URL = "https://api.spoonacular.com";
-const REACT_APP_SPOONACULAR_API_KEY = "cfe2f9b416d04a718497f7ea43c738e6";
+// Cycle through these keys incase API quota limit is full
+// const REACT_APP_SPOONACULAR_API_KEY = "cfe2f9b416d04a718497f7ea43c738e6";
+// const REACT_APP_SPOONACULAR_API_KEY = "a5d3501482ba4254a0c113e6c551b9e1";
+const REACT_APP_SPOONACULAR_API_KEY = "528b5885a5424734ac96e5c033ca8b45";
 
 //#region recipes
-
 export const getRandomRecipes = async (number) => {
   return axios
     .get(

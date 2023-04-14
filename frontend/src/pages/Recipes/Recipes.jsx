@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
-//import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import NewCard from "../../components/NewCard/NewCard";
 import { getRandomRecipes } from "../../services/ApiService";
 
@@ -10,7 +8,6 @@ export const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // if you want more recipes per the slider at the end of the link increase the "number"
     getRandomRecipes(5).then((response) => {
       setRecipes(response);
     });
