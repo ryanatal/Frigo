@@ -38,6 +38,10 @@ h2 {
   width: 30%;
 }
 
+.list-body {
+  overflow-y: scroll;
+}
+
 .shopping-item {
   display: flex;
   justify-content: space-between;
