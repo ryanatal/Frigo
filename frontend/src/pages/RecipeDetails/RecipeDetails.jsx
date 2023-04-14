@@ -19,16 +19,17 @@ export const RecipeDetails = () => {
 
   useEffect(() => {
     getRecipeInfo(id).then((recipe) => setRecipe(recipe));
-    getRecipeIngredients(id).then((ingredients) =>
-      setIngredients(ingredients)
-    );
+    getRecipeIngredients(id).then((ingredients) => setIngredients(ingredients));
     getRecipeMeasurements(id).then((measurements) =>
       setMeasurements(measurements)
     );
-    getRecipeInstructions(id).then((instructions) =>
-      setInstructions(instructions)
+    getRecipeInstructions(id).then((data) =>
+      setInstructions(data)
     );
+    console.log(instructions)
   }, [id]);
+
+  if (!recipe) return null;
 
   return (
     <>
@@ -51,11 +52,7 @@ export const RecipeDetails = () => {
             </div>
           </div>
           <div className="recipe-details-right">
-            {/* <div
-          dangerouslySetInnerHTML={{ __html: recipe.summary }}
-          className="recipe-details-description"
-        ></div> */}
-            <div className="recipe-details-measurements">
+          <div className="recipe-details-measurements">
               <h2>Measurements</h2>
               <ul className="recipe-details-measurement">
                 {measurements.map((measurement, index) => (

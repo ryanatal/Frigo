@@ -1,96 +1,90 @@
-export const getIngredients = async () => {
-    const module = await import("../data/data.js");
-    return module.Ingredients;
-}
+import axios from "axios";
 
-export const getRecipes = async (count) => {
-    const module = await import("../data/data.js");
-    console.log("recipes: " + module.Recipes)
-    return module.Recipes.slice(0, count);
-}
+const BASE_URL = "https://api.spoonacular.com";
+const REACT_APP_SPOONACULAR_API_KEY = "cfe2f9b416d04a718497f7ea43c738e6";
+
+//#region recipes
+
+export const getRandomRecipes = async (number) => {
+  return axios
+    .get(
+      `${BASE_URL}/recipes/random?number=${number}&apiKey=${REACT_APP_SPOONACULAR_API_KEY}`
+    )
+    .then((response) => {
+      return response.data.recipes;
+    });
+};
+//#endregion recipes
+
+//#region Recipe Details;
 
 export const getRecipeInfo = async (id) => {
-    const module = await import("../data/data.js");
-    return module.RecipesInfo[id];
-}
+  return axios
+    .get(
+      `${BASE_URL}/recipes/${id}/information?apiKey=${REACT_APP_SPOONACULAR_API_KEY}`
+    )
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 export const getRecipeMeasurements = async (id) => {
-    const module = await import("../data/data.js");
-    const ingredients = [];
-    module.RecipesInfo[id].extendedIngredients.forEach((ingredient) => {
+  const ingredients = [];
+  return axios
+    .get(
+      `${BASE_URL}/recipes/${id}/information?apiKey=${REACT_APP_SPOONACULAR_API_KEY}`
+    )
+    .then((response) => {
+      response.data.extendedIngredients.forEach((ingredient) => {
         ingredients.push(ingredient.original);
+      });
+      return ingredients;
     })
-    return ingredients;
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export const getRecipeIngredients = async (id) => {
-    const module = await import("../data/data.js");
-    const ingredients = [];
-    module.RecipesInfo[id].extendedIngredients.forEach((ingredient) => {
+  const ingredients = [];
+  return axios
+    .get(
+      `${BASE_URL}/recipes/${id}/information?apiKey=${REACT_APP_SPOONACULAR_API_KEY}`
+    )
+    .then((response) => {
+      response.data.extendedIngredients.forEach((ingredient) => {
         ingredients.push(ingredient.name);
+      });
+      return ingredients;
     })
-    return ingredients;
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export const getRecipeInstructions = async (id) => {
-    const module = await import("../data/data.js");
-    console.log("steps module: " + module.AnalyzedInstructions[id].steps);
-    return module.AnalyzedInstructions[id].steps;
-};
-
-
-export const getAisle = async () => {
-    const module = await import("../data/data.js");
-    const aisles = [];
-    module.Ingredients.forEach((ingredient) => {
-        if (!aisles.includes(ingredient.aisle))
-           aisles.push(ingredient.aisle);
+  return axios
+    .get(
+      `${BASE_URL}/recipes/${id}/information?apiKey=${REACT_APP_SPOONACULAR_API_KEY}`
+    )
+    .then((response) => {
+      return response.data.analyzedInstructions[0].steps;
     })
-
-    const ingredients = [];
-    aisles.forEach((aisle) => {
-    const ingredientList = [];
-    module.Ingredients.forEach((ingredient) => {
-            if (ingredient.aisle === aisle)
-                ingredientList.push(ingredient.name);
-        })
-    ingredients.push(ingredientList);
-   })
-
-    const list = [ aisles, ingredients ];
-    return list;
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-
-// export const getAisle = async () => {
-//     const module = await import("../data/data.js");
-//         const aisles = [];
-
-//         module.RecipesInfo[1].extendedIngredients.forEach((ingredient) => {
-//             if (!aisles.includes(ingredient.aisle))
-//             aisles.push(ingredient.aisle);
-//         })
-//         const ingredients = [];
-//         aisles.forEach((aisle) => {
-//             const ingredientList = [];
-//             module.RecipesInfo[1].extendedIngredients.forEach((ingredient) => {
-//                 if (ingredient.aisle === aisle) {
-//                     ingredientList.push(ingredient.name);
-//                 }
-//             })
-//             ingredients.push(ingredientList);
-            
-//         })
-//         const aisleIngredients = [ aisles, ingredients ];
-//         return aisleIngredients;
-// };
-
+//#endregion Recipe Details
 
 export const getIngredientsList = async () => {
-    const module = await import("../data/ingredients.js");
-    let list = [];
-    module.ingredients.forEach((ingredient) => {
-        list.push(ingredient);
-    });
-    return list;
-}
+  const module = await import("../data/ingredients.js");
+  let list = [];
+  module.ingredients.forEach((ingredient) => {
+    list.push(ingredient);
+  });
+  return list;
+};

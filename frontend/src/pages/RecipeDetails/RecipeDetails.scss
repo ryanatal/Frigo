@@ -93,6 +93,11 @@
   margin-right: 1rem;
 }
 
+//li;:marker remove
+.recipe-details-measurement > li {
+  list-style-type: none;
+}
+
 .recipe-details-steps > h2 {
   color: $secondary-color;
   margin-bottom: 1rem;
