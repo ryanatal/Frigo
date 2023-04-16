@@ -76,7 +76,7 @@ export const ShoppingList = () => {
                 {item}
                 <div className="shopping-btns-wrapper">
                   <button onClick={(index) => removeItem(index)} className="btn btn-primary">Got it</button>
-                  <button onClick={(index) => removeItem(index)} className="btn btn-primary">Remove</button>
+                  <button onClick={(index) => removeItem(index)} className="btn btn-danger">Remove</button>
                 </div>
               </div>
             ))}
