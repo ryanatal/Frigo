@@ -1,16 +1,16 @@
 @import "../../styles/styles.scss";
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-.card {
+.card-recipe{
   width: 20vw;
   height: auto;
 }
-.card-img-top{
+.card-img-top-recipe{
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
-.btn-primary {
+.button-recipe {
     background-color: $button !important;
     border-color: $button-border !important;
     color: $secondary-color !important;
@@ -27,45 +27,45 @@
 
 
 @media only screen and (max-width: 767px) {
-  .card {
+  .card-recipe {
     width: 45vw;
     height: auto;
   }
-  .card-img-top {
+  .card-img-top-recipe{
     height: 100px;
   }
-  .container{
+  .container-recipe{
     padding: 1% !important;
   }
-  .card-title{
+  .title-recipe{
     font-size: 0.7rem;
   }
-  .card-text{
+  .text-recipe{
     font-size: 0.6rem;
   }
-  .btn-primary{
+  .button-recipe{
     font-size: 0.6rem !important;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .card {
+  .card-recipe {
     width: 30vw;
     height: auto;
   }
-  .card-img-top {
+  .card-img-top-recipe {
     height: 150px;
   }
-  .container{
+  .container-recipe{
     padding: 2% !important;
   }
-  .card-title{
+  .title-recipe{
     font-size: 1rem;
   }
-  .card-text{
+  .text-recipe{
     font-size: 0.9rem;
   }
-  .btn-primary{
+  .button-recipe{
     font-size: 0.8rem !important;
   }
 }
