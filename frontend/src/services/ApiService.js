@@ -90,3 +90,8 @@ export const getIngredientsList = async () => {
   });
   return list;
 };
+
+export const getIngredients = async () => {
+  const module = await import("../data/ingredients.js");
+  return module.ingredients;
+}

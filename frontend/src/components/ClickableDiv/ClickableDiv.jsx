@@ -10,7 +10,6 @@ export const ClickableDiv = ({ items, selectedItems, setSelectedItems }) => {
       setSelectedItems([...selectedItems, item]);
     }
   };
-
   return (
     <div className='items-wrapper'>
       {items && items.map((item, index) => (
@@ -23,7 +22,7 @@ export const ClickableDiv = ({ items, selectedItems, setSelectedItems }) => {
             handleClick(item);
           }}
         >
-          {item}
+          {item.ingredient}
         </a>
       ))}
     </div>

@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./ShoppingList.scss";
 import { ClickableDiv } from "../../components/ClickableDiv/ClickableDiv";
 import { IngredientsSelectedContext } from "../../IngredientsSelectedContext";
+import { getIngredients } from "../../services/ApiService";
 
 export const ShoppingList = () => {
   const { selectedIngredients, setSelectedIngredients } = useContext(
@@ -14,49 +15,42 @@ export const ShoppingList = () => {
     setSelectedIngredients(newSelectedIngredients);
   };
 
+  const [ingredients, setIngredients] = useState(null);
+  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
+  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
+
+  useEffect(() => {
+    getIngredients().then((ingredients) => {
+      setIngredients(ingredients);
+    });
+  }, []);
+
+  if (!ingredients) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="shopping-list card-deck">
       <div className="card text-white bg-dark shopping-ingredients">
         <div className="card-title">
           <h2>Ingredients</h2>
           <div className="search-container">
-            <input className="search-input" type="text" placeholder="Search..." />
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search..."
+              value={ingredientSearchQuery}
+              onChange={(e) => setIngredientSearchQuery(e.target.value)}
+            />
           </div>
         </div>
         <div className="card-body ingredients-body">
           <ClickableDiv
-            items={[
-              "Item1",
-              "Item2",
-              "Item3",
-              "Item4",
-              "Item5",
-              "Item6",
-              "Item7",
-              "Item8",
-              "Item9",
-              "Item10",
-              "Item11",
-              "Item12",
-              "Item13",
-              "Item14",
-              "Item15",
-              "Item16",
-              "Item17",
-              "Item18",
-              "Item19",
-              "Item20",
-              "Item21",
-              "Item22",
-              "Item23",
-              "Item24",
-              "Item25",
-              "Item26",
-              "Item27",
-              "Item28",
-              "Item29",
-              "Item30",
-            ]}
+            items={ingredients.filter((ingredient) =>
+              ingredient.ingredient
+                .toLowerCase()
+                .includes(ingredientSearchQuery.toLowerCase())
+            )}
             selectedItems={selectedIngredients}
             setSelectedItems={setSelectedIngredients}
           />
@@ -66,17 +60,33 @@ export const ShoppingList = () => {
         <div className="card-title">
           <h2>Shopping List</h2>
           <div className="search-container">
-            <input className="search-input" type="text" placeholder="Search..." />
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search..."
+              value={shoppingListSearchQuery}
+              onChange={(e) => setShoppingListSearchQuery(e.target.value)}
+            />
           </div>
         </div>
         <div className="card-body list-body">
           <div className="items-selected">
-            {selectedIngredients.map((item, index) => (
+            {selectedIngredients.filter((item) => item.ingredient.toLowerCase().includes(shoppingListSearchQuery.toLowerCase())).map((item, index) => (
               <div key={index} className="shopping-item">
-                {item}
+                {item.ingredient}
                 <div className="shopping-btns-wrapper">
-                  <button onClick={(index) => removeItem(index)} className="btn btn-primary">Got it</button>
-                  <button onClick={(index) => removeItem(index)} className="btn btn-danger">Remove</button>
+                  <button
+                    onClick={(index) => removeItem(index)}
+                    className="btn btn-primary"
+                  >
+                    Got it
+                  </button>
+                  <button
+                    onClick={(index) => removeItem(index)}
+                    className="btn btn-danger"
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             ))}
