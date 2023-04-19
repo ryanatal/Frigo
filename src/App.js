@@ -22,7 +22,7 @@ function App() {
   return (
     <>
     <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
-    <Router basename="/Frigo">
+    <Router>
       <div className="App">
       <Header1 />
         <Routes>
