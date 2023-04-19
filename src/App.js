@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header1 from "./components/Header1/Header1";
 import Home from "./pages/Home/Home";
@@ -23,7 +22,7 @@ function App() {
   return (
     <>
     <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
-    <HashRouter>
+    <Router basename="https://ryanatal.github.io/Frigo/">
       <div className="App">
       <Header1 />
         <Routes>
@@ -38,7 +37,7 @@ function App() {
           
         </Routes>
       </div>
-    </HashRouter>
+    </Router>
     </IngredientsSelectedContext.Provider>
     </>
   );
