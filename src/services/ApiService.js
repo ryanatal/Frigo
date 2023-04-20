@@ -6,7 +6,11 @@ const REACT_APP_SPOONACULAR_API_KEY =
   [
     "a5d3501482ba4254a0c113e6c551b9e1",
     "528b5885a5424734ac96e5c033ca8b45",
-    "cfe2f9b416d04a718497f7ea43c738e6"
+    "cfe2f9b416d04a718497f7ea43c738e6",
+    "bae4e19f228346cab3f2a7059792bcfe",
+    "247b86e100314847b22afc74965cf2b2",
+    "627845b7b82e4414b7ea33f63b32e088",
+    "ce817a97478d4035991a4d594d987cd9"
   ];
 
 let currentKeyIndex = 0;
