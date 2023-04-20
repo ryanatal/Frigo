@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 import { getIngredients } from "../../services/ApiService";
 import { useState, useEffect, useContext } from "react";
 import { ClickableDiv } from "../../components/ClickableDiv/ClickableDiv";
 import { PantryIngredientsSelectedContext } from "../../PantryIngredientsSelectedContext";
+=======
+import { getIngredientsList, getRecipesByIngredients } from "../../services/ApiService";
+import { useState, useEffect } from "react";
+>>>>>>> Stashed changes
 
 import "./Ingredients.scss";
 
@@ -19,9 +24,22 @@ export const Ingredients2 = () => {
     }, []);
 
     useEffect(() => {
-        console.log(selectedPantryIngredients);
-    }, [selectedPantryIngredients]);
-    
+        async function fetchRecipesByIngredients() {
+            const data = await getRecipesByIngredients(ingredientData);
+            console.log(data);
+        }
+        fetchRecipesByIngredients();
+    }, [ingredientData]);
+
+
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const filteredIngredientData = ingredientData.filter(
+        (ingredient) =>
+            ingredient.ingredient.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
         <>
