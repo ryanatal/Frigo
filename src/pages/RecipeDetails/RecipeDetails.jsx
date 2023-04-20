@@ -26,7 +26,6 @@ export const RecipeDetails = () => {
     getRecipeInstructions(id).then((data) =>
       setInstructions(data)
     );
-    console.log(instructions)
   }, [id]);
 
   if (!recipe) return null;
