@@ -13,15 +13,18 @@ import CoverPage from "./pages/CoverPage/CoverPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import { IngredientsSelectedContext } from "./IngredientsSelectedContext";
+import { PantryIngredientsSelectedContext } from "./PantryIngredientsSelectedContext";
 
 
 function App() {
 
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [selectedPantryIngredients, setSelectedPantryIngredients] = useState([]);
 
   return (
     <>
     <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
+    <PantryIngredientsSelectedContext.Provider value={{selectedPantryIngredients, setSelectedPantryIngredients}}>
     <Router>
       <div className="App">
       <Header1 />
@@ -38,6 +41,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </PantryIngredientsSelectedContext.Provider>
     </IngredientsSelectedContext.Provider>
     </>
   );

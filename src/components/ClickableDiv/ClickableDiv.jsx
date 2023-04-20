@@ -13,17 +13,16 @@ export const ClickableDiv = ({ items, selectedItems, setSelectedItems }) => {
   return (
     <div className='items-wrapper'>
       {items && items.map((item, index) => (
-        <a
+        <button
           key={index}
           className={`clickable-item ${selectedItems.includes(item) ? 'selected' : ''}`}
-          href="#"
           onClick={(e) => {
             e.preventDefault();
             handleClick(item);
           }}
         >
           {item.ingredient}
-        </a>
+        </button>
       ))}
     </div>
   );
