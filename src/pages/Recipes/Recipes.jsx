@@ -2,16 +2,27 @@ import React, { useState, useEffect } from "react";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 import NewCard from "../../components/NewCard/NewCard";
-import { getRandomRecipes } from "../../services/ApiService";
+import { getRandomRecipes, searchRecipes } from "../../services/ApiService";
 
 export const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    getRandomRecipes(5).then((response) => {
-      setRecipes(response);
-    });
-  }, []);
+    if (searchQuery) {
+      searchRecipes(searchQuery, 5).then((response) => {
+        setRecipes(response);
+      });
+    } else {
+      getRandomRecipes(5).then((response) => {
+        setRecipes(response);
+      });
+    }
+  }, [searchQuery]);
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
   return (
     <div id="main">
@@ -20,6 +31,7 @@ export const Recipes = () => {
           id="searchInputRecipe"
           type="text"
           placeholder="Search for recipes"
+          onChange={handleSearchChange}
         />
       </div>
 

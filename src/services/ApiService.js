@@ -16,7 +16,7 @@ const getNextApiKey = () => {
   return REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex];
 };
 
-//#region random recipes
+//#region recipes
 export const getRandomRecipes = async (number) => {
   try {
     const response = await axios.get(
@@ -31,6 +31,37 @@ export const getRandomRecipes = async (number) => {
     console.log(error);
   }
 };
+
+export const getRecipesByIngredients = async (ingredients, number = 10) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/recipes/findByIngredients?ingredients=${ingredients}&number=${number}&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
+    );
+    return response.data;
+  } catch (error) {
+    if (error.response.status === 402) {
+      getNextApiKey();
+      return getRecipesByIngredients(ingredients, number);
+    }
+    console.log(error);
+  }
+};
+
+export const searchRecipes = async (query, number = 5) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/recipes/complexSearch?query=${query}&number=${number}&addRecipeInformation=true&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
+    );
+    return response.data.results;
+  } catch (error) {
+    if (error.response.status === 402) {
+      getNextApiKey();
+      return searchRecipes(query, number);
+    }
+    console.log(error);
+  }
+};
+
 //#endregion recipes
 
 //#region Recipe Details;
