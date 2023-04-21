@@ -36,11 +36,12 @@ export const getRandomRecipes = async (number) => {
   }
 };
 
-export const getRecipesByIngredients = async (ingredients, number = 10) => {
+export const getRecipesByIngredients = async (ingredients, number = 5) => {
   try {
     const response = await axios.get(
       `${BASE_URL}/recipes/findByIngredients?ingredients=${ingredients}&number=${number}&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
     );
+    console.log(response.data + "API");
     return response.data;
   } catch (error) {
     if (error.response.status === 402) {
