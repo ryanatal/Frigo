@@ -21,7 +21,7 @@ function CollapsibleExample() {
                     Home
                 </Nav.Link>
                 <Nav.Link href="/ingredients" className = {location.pathname === "/ingredients" ? "CurrentRoute" : ""}>
-                  Ingredients
+                  Pantry
                 </Nav.Link>
                 <Nav.Link href="/shopping" className = {location.pathname === "/shopping" ? "CurrentRoute" : ""}>
                   Shopping
@@ -29,18 +29,13 @@ function CollapsibleExample() {
                 <Nav.Link href="/aboutus" className = {location.pathname === "/aboutus" ? "CurrentRoute" : ""}>
                   About
                 </Nav.Link>
-                <NavDropdown title="Profile"id="collasible-nav-dropdown">              
-                    <NavDropdown.Item href="#action/3.2">
-                        View
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                        Pantry
-                    </NavDropdown.Item>
+                {location.pathname !== '/login' && location.pathname !== '/signup' && (
+                  <NavDropdown title="Profile" id="collasible-nav-dropdown">
+                    <NavDropdown.Item href="/profile">Account</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                        Log Out
-                    </NavDropdown.Item>
-                </NavDropdown>
+                    <NavDropdown.Item href="/login">Log Out</NavDropdown.Item>
+                  </NavDropdown>
+                )}
             </Nav>
         </Navbar.Collapse>
       </Container>

@@ -8,7 +8,7 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
-
+    overflow: auto;
 }
 
 .about-us-container {
@@ -61,7 +61,14 @@
     font-size: 0.7rem; /* adjust font-size */
 }
 
-  
+@media screen and (max-height: 750px) {
+    .team-member {
+        margin: 1vw; /* adjust margin */
+        flex: 1 0 calc(33.33% - 30px); /* adjust flex value */
+        max-width: calc(33.33% - 10px); /* adjust max-width value */
+    }
+}
+
 @media only screen and (max-width: 992px) {
   .aboutus{
       background-image: url("../../assets/BackgroundMobile.png");
