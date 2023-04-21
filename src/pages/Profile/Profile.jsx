@@ -7,7 +7,7 @@ const Profile = ({ username, email, password }) => {
     <div className="profile">
       <div className="profile-container">
         <div className="profile-header">
-          <img src="https://via.placeholder.com/150" alt="Profile Picture" />
+          <img src="https://via.placeholder.com/150" alt="profile"/>
           <h2>{username} Ryan</h2>
         </div>
         <div className="profile-info">
