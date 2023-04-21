@@ -8,7 +8,7 @@ import { ShoppingList} from "./pages/ShoppingList/ShoppingList";
 import SignUp from "./pages/Authentication/Signup";
 import Login from "./pages/Authentication/Login";
 import { RecipeDetails } from "./pages/RecipeDetails/RecipeDetails";
-
+import Profile from "./pages/Profile/Profile";
 import CoverPage from "./pages/CoverPage/CoverPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
@@ -37,7 +37,7 @@ function App() {
           <Route path="/recipes/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
           <Route path="landing" element={<LandingPage />} />
-          
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>
