@@ -84,11 +84,33 @@
   #slider{
     width: 100%;
   }
+  #searchContainerRecipe {
+    width: 90%;
+  }
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   #main{
     margin-top: 12vh;
+  }
+  #searchInputRecipe{
+    padding: 10px 10px !important;
+    font-size: 10px !important;
+    width: 92%;
+  }
+  #searchContainerRecipe{
+    width: 100% !important;
+    display: flexbox !important;
+    flex-direction: column !important;
+
+  }
+}
+
+@media(max-width: 280px){
+  #searchContainerRecipe{
+    width: 100% !important;
+    display: flexbox !important;
+    flex-direction: column !important;
   }
 }
   
