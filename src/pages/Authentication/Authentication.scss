@@ -38,12 +38,11 @@
   color: $secondary-color;
 }
 
-// .Authentication-Form input[type=text] {
-//   font-size: 1vw;
-// }
-// .Authentication-Form input[type=password] {
-//   font-size: 1vw;
-// }
+.Authentication-Form input {
+  background: transparent;
+  color: $secondary-color;
+}
+
 .Authentication-Form button[type=submit] {
   font-size: 1vw;
   background-color: $button;

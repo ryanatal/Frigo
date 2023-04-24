@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Header1 from "./components/Header1/Header1";
 import Home from "./pages/Home/Home";
@@ -21,6 +22,8 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [selectedPantryIngredients, setSelectedPantryIngredients] = useState([]);
 
+  const isAuth = Boolean(useSelector((state) => state.token));
+
   return (
     <>
     <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
@@ -30,14 +33,14 @@ function App() {
       <Header1 />
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/shopping" element={<ShoppingList />} />
+          <Route path="/aboutus" element={isAuth ? <AboutUs /> : <Navigate to="/" /> } />
+          <Route path="/shopping" element={isAuth ? <ShoppingList /> : <Navigate to="/" /> } />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/recipes/:id" element={<RecipeDetails />} />
-          <Route path="cover" element={<CoverPage />} />  
-          <Route path="landing" element={<LandingPage />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/home" element={isAuth ? <Home /> : <Navigate to="/" /> } />
+          <Route path="/recipes/:id" element={isAuth ? <RecipeDetails /> : <Navigate to="/" /> } />
+          <Route path="cover" element={isAuth ? <CoverPage /> : <Navigate to="/" /> } />  
+          <Route path="landing" element={isAuth ? <LandingPage /> : <Navigate to="/" /> } />
+          <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/" /> } />
         </Routes>
       </div>
     </Router>

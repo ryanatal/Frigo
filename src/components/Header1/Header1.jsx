@@ -5,9 +5,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useDispatch } from 'react-redux';
+import { setLogout } from '../../state';
 
 function CollapsibleExample() {
     const location = useLocation();
+    const dispatch = useDispatch();
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" className="fixed-top HeaderOpacity">
       <Container>
@@ -29,11 +32,11 @@ function CollapsibleExample() {
                 <Nav.Link href="/aboutus" className = {location.pathname === "/aboutus" ? "CurrentRoute" : ""}>
                   About
                 </Nav.Link>
-                {location.pathname !== '/login' && location.pathname !== '/signup' && (
+                {location.pathname !== '/' && location.pathname !== '/signup' && (
                   <NavDropdown title="Profile" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="/profile">Account</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/">Log Out</NavDropdown.Item>
+                    <NavDropdown.Item href="/" onClick={() => dispatch(setLogout())}>Log Out</NavDropdown.Item>
                   </NavDropdown>
                 )}
             </Nav>
