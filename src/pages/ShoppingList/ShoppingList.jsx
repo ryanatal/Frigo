@@ -1,29 +1,61 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./ShoppingList.scss";
 import { ClickableDiv } from "../../components/ClickableDiv/ClickableDiv";
-import { IngredientsSelectedContext } from "../../IngredientsSelectedContext";
 import { getIngredients } from "../../services/ApiService";
+import { useDispatch } from "react-redux";
+import { setShoppingList } from "../../state";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 export const ShoppingList = () => {
-  const { selectedIngredients, setSelectedIngredients } = useContext(
-    IngredientsSelectedContext
-  );
 
-  const removeItem = (index) => {
-    const newSelectedIngredients = [...selectedIngredients];
-    newSelectedIngredients.splice(index, 1);
-    setSelectedIngredients(newSelectedIngredients);
-  };
+  const dispatch = useDispatch();
+  //Bearer token 
+  const token = useSelector((state) => state.token);
+  const shoppinglist = useSelector((state) => state.shoppingList);
 
-  const [ingredients, setIngredients] = useState(null);
-  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
-  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
+  const [itemsList, setItemsList] = useState(shoppinglist);
 
   useEffect(() => {
     getIngredients().then((ingredients) => {
       setIngredients(ingredients);
     });
   }, []);
+
+  useEffect(() => {
+    console.log("initial shopping list: " + shoppinglist);
+    setItemsList(shoppinglist);
+    console.log(itemsList)
+  }, []);
+
+  const saveShoppingList = () => {
+    axios
+      .post(
+        "http://localhost:8000/api/v1/shoppinglist/add",
+        {
+          items: itemsList,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log("saved: " + res.data.items);
+        dispatch(setShoppingList(itemsList));
+      });
+  };
+
+  const removeItem = (index) => {
+    const newItemsList = [...itemsList];
+    newItemsList.splice(index, 1);
+    setItemsList(newItemsList);
+  };
+
+  const [ingredients, setIngredients] = useState(null);
+  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
+  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
 
   if (!ingredients) {
     return <div>Loading...</div>;
@@ -51,14 +83,15 @@ export const ShoppingList = () => {
                 .toLowerCase()
                 .includes(ingredientSearchQuery.toLowerCase())
             )}
-            selectedItems={selectedIngredients}
-            setSelectedItems={setSelectedIngredients}
+            selectedItems={itemsList}
+            setSelectedItems={setItemsList}
           />
         </div>
       </div>
       <div className="card text-white bg-dark shopping-list-items">
         <div className="card-title">
-          <h2>Shopping List</h2>
+          <h2>Shopping List </h2>
+          <button onClick={saveShoppingList}>Save</button>
           <div className="search-container">
             <input
               className="search-input"
@@ -71,7 +104,7 @@ export const ShoppingList = () => {
         </div>
         <div className="card-body list-body">
           <div className="items-selected">
-            {selectedIngredients.filter((item) => item.ingredient.toLowerCase().includes(shoppingListSearchQuery.toLowerCase())).map((item, index) => (
+            {itemsList.filter((item) => item.ingredient.toLowerCase().includes(shoppingListSearchQuery.toLowerCase())).map((item, index) => (
               <div key={index} className="shopping-item">
                 {item.ingredient}
                 <div className="shopping-btns-wrapper">

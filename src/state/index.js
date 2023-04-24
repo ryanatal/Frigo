@@ -21,10 +21,10 @@ export const authSlice = createSlice({
             state.token = null;
         },
         setPantry: (state, action) => {
-            state.pantry = action.payload.pantry;
+            state.pantry = action.payload;
         },
         setShoppingList: (state, action) => {
-            state.shoppingList = action.payload.shoppingList;
+            state.shoppingList = action.payload;
         }
     },
 });

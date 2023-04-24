@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -13,21 +13,19 @@ import Profile from "./pages/Profile/Profile";
 import CoverPage from "./pages/CoverPage/CoverPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
-import { IngredientsSelectedContext } from "./IngredientsSelectedContext";
-import { PantryIngredientsSelectedContext } from "./PantryIngredientsSelectedContext";
-
+import Pantry from "./pages/Pantry/Pantry";
 
 function App() {
 
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
-  const [selectedPantryIngredients, setSelectedPantryIngredients] = useState([]);
+  // const [selectedIngredients, setSelectedIngredients] = useState([]);
+  // const [selectedPantryIngredients, setSelectedPantryIngredients] = useState([]);
 
   const isAuth = Boolean(useSelector((state) => state.token));
 
   return (
     <>
-    <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
-    <PantryIngredientsSelectedContext.Provider value={{selectedPantryIngredients, setSelectedPantryIngredients}}>
+    {/* <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
+    <PantryIngredientsSelectedContext.Provider value={{selectedPantryIngredients, setSelectedPantryIngredients}}> */}
     <Router>
       <div className="App">
       <Header1 />
@@ -41,11 +39,12 @@ function App() {
           <Route path="cover" element={isAuth ? <CoverPage /> : <Navigate to="/" /> } />  
           <Route path="landing" element={isAuth ? <LandingPage /> : <Navigate to="/" /> } />
           <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/" /> } />
+          <Route path="/ingredients" element={isAuth ? <Pantry /> : <Navigate to="/" /> } />
         </Routes>
       </div>
     </Router>
-    </PantryIngredientsSelectedContext.Provider>
-    </IngredientsSelectedContext.Provider>
+    {/* </PantryIngredientsSelectedContext.Provider>
+    </IngredientsSelectedContext.Provider> */}
     </>
   );
 }
