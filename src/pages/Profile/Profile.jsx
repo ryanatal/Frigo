@@ -1,28 +1,27 @@
 import React from "react";
 import "./Profile.scss";
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+import { useSelector } from "react-redux";
+import dr from "../../assets/About-Us/DrGeorges-About.png";
 
-const Profile = ({ username, email, password }) => {
+const Profile = () => {
+
+  const username = useSelector(state => state.user.username);
+  const email = useSelector(state => state.user.email);
+
   return (
     <div className="profile">
       <div className="profile-container">
         <div className="profile-header">
-          <img src="https://via.placeholder.com/150" alt="profile"/>
-          <h2>{username} Ryan</h2>
+          <img src={dr} alt="profile"/>
+          <h2>{username}</h2>
         </div>
         <div className="profile-info">
           <div className="label-profile">
             Email:
             <div className="input-container">
-              <input type="email" value={email} disabled className="input-profile"/>
-              <Button variant="outline-secondary">Edit</Button>
-            </div>
-          </div>
-          <div className="label-profile">
-            Password:
-            <div className="input-container">
-              <input type="password" value={password} disabled className="input-profile"/>
-              <Button variant="outline-secondary">Edit</Button>
+              <h5 className="input-profile">{email}</h5>
+              {/* <Button variant="outline-secondary">Edit</Button> */}
             </div>
           </div>
         </div>
