@@ -29,11 +29,11 @@ function App() {
       <div className="App">
       <Header1 />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/shopping" element={<ShoppingList />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/recipes/:id" element={<RecipeDetails />} />
           <Route path="cover" element={<CoverPage />} />  
           <Route path="landing" element={<LandingPage />} />

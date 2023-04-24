@@ -17,7 +17,7 @@ function CollapsibleExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
             <Nav className="RightNavbar">
-                <Nav.Link href="/" className = {location.pathname === "/" ? "CurrentRoute" : ""}>
+                <Nav.Link href="/home" className = {location.pathname === "/home" ? "CurrentRoute" : ""}>
                     Home
                 </Nav.Link>
                 <Nav.Link href="/ingredients" className = {location.pathname === "/ingredients" ? "CurrentRoute" : ""}>
@@ -33,7 +33,7 @@ function CollapsibleExample() {
                   <NavDropdown title="Profile" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="/profile">Account</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/login">Log Out</NavDropdown.Item>
+                    <NavDropdown.Item href="/">Log Out</NavDropdown.Item>
                   </NavDropdown>
                 )}
             </Nav>

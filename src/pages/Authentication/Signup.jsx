@@ -48,7 +48,7 @@ function SignUp() {
           <button type="submit">Sign Up</button>
           <div className="switch-authentication">
             Already have an account? &nbsp;
-            <Link to="/login" className="Switching-Button">
+            <Link to="/" className="Switching-Button">
               {" "}
               Login
             </Link>
