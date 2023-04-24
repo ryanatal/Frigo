@@ -23,12 +23,15 @@ export const authSlice = createSlice({
         setPantry: (state, action) => {
             state.pantry = action.payload;
         },
+        setPantryItem: (state, action) => {
+            state.pantry.push(action.payload);
+        },
         setShoppingList: (state, action) => {
             state.shoppingList = action.payload;
         }
     },
 });
 
-export const { setLogin, setLogout, setPantry, setShoppingList } = authSlice.actions;
+export const { setLogin, setLogout, setPantry, setPantryItem, setShoppingList } = authSlice.actions;
 
 export default authSlice.reducer;

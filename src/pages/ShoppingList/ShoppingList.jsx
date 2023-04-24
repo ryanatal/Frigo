@@ -3,7 +3,7 @@ import "./ShoppingList.scss";
 import { ClickableDiv } from "../../components/ClickableDiv/ClickableDiv";
 import { getIngredients } from "../../services/ApiService";
 import { useDispatch } from "react-redux";
-import { setShoppingList } from "../../state";
+import { setShoppingList, setPantryItem } from "../../state";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -47,11 +47,28 @@ export const ShoppingList = () => {
       });
   };
 
-  const removeItem = (index) => {
-    const newItemsList = [...itemsList];
-    newItemsList.splice(index, 1);
-    setItemsList(newItemsList);
+  const removeItem = (selectedItem) => {
+    setItemsList(itemsList.filter((item) => item.id !== selectedItem.id));
   };
+
+  const sendToPantry = (item) => {
+    axios.post(
+      "http://localhost:8000/api/v1/shoppinglist/addToPantry",
+      {
+        item: item,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log("saved: " + res.data);
+        dispatch(setPantryItem(item));
+        removeItem(item);
+      });
+
+  }
 
   const [ingredients, setIngredients] = useState(null);
   const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
@@ -109,13 +126,13 @@ export const ShoppingList = () => {
                 {item.ingredient}
                 <div className="shopping-btns-wrapper">
                   <button
-                    onClick={(index) => removeItem(index)}
+                    onClick={() => sendToPantry(item)}
                     className="btn btn-primary"
                   >
                     Got it
                   </button>
                   <button
-                    onClick={(index) => removeItem(index)}
+                    onClick={() => removeItem(item)}
                     className="btn btn-danger"
                   >
                     Remove
