@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { MDBInput } from "mdb-react-ui-kit";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../../constants/constants";
 
 
 function SignUp() {
@@ -15,7 +16,7 @@ function SignUp() {
     e.preventDefault();
     console.log(formData);
     axios
-      .post("http://localhost:8000/api/v1/auth/register", formData)
+      .post(`${SERVER_URL}/api/v1/auth/register`, formData)
       .then((res) => {
         console.log(res.data)
       })

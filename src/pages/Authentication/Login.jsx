@@ -6,6 +6,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../state"
+import { SERVER_URL } from "../../constants/constants";
 
 function Login() {
   const [formData, setFormData] = useState({});
@@ -16,7 +17,7 @@ function Login() {
     e.preventDefault();
     console.log(formData);
     axios
-      .post("http://localhost:8000/api/v1/auth/login", formData)
+      .post(`${SERVER_URL}/api/v1/auth/login`, formData)
       .then((res) => {
         console.log(res.data);
         dispatch(setLogin({

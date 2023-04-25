@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { setShoppingList, setPantryItem } from "../../state";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { SERVER_URL } from "../../constants/constants";
+
 
 export const ShoppingList = () => {
 
@@ -31,7 +33,7 @@ export const ShoppingList = () => {
   const saveShoppingList = () => {
     axios
       .post(
-        "http://localhost:8000/api/v1/shoppinglist/add",
+        `${SERVER_URL}/api/v1/shoppinglist/add`,
         {
           items: itemsList,
         },
@@ -58,7 +60,7 @@ export const ShoppingList = () => {
 
   const sendToPantry = (item) => {
     axios.post(
-      "http://localhost:8000/api/v1/shoppinglist/addToPantry",
+      `${SERVER_URL}/api/v1/shoppinglist/addToPantry`,
       {
         item: item,
       },

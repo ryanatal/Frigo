@@ -13,7 +13,7 @@ const CoverPage = ({ coverRecipeRef }) => {
       <div id="content" className="container-for-Landing"> 
         <h1 className='title-for-Landing'>Frigo</h1>
         <p className="subtitle-for-Landing">Discover the world of food</p>
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link to="/home" style={{ textDecoration: 'none' }}>
          <button className="IngredientsButton">Ingredients!</button>
         </Link>
       </div>

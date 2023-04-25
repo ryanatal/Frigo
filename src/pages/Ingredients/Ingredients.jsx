@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPantry } from "../../state";
 import axios from "axios";
 import "./Ingredients.scss";
+import { SERVER_URL } from "../../constants/constants";
+
 
 export const Ingredients2 = () => {
   const [ingredientData, setIngredientData] = useState([]);
@@ -30,7 +32,7 @@ export const Ingredients2 = () => {
   const savePantry = () => {
     axios
       .post(
-        "http://localhost:8000/api/v1/pantry/add",
+        `${SERVER_URL}/api/v1/pantry/add`,
         {
           ingredients: selectedPantryIngredients,
         },

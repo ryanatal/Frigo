@@ -6,6 +6,7 @@ import { getIngredients } from "../../services/ApiService";
 import { useDispatch } from "react-redux";
 import { setPantry } from "../../state";
 import axios from "axios";
+import { SERVER_URL } from "../../constants/constants";
 
 const Pantry = () => {
 
@@ -34,7 +35,7 @@ const Pantry = () => {
   const savePantry = () => {
     axios
       .post(
-        "http://localhost:8000/api/v1/pantry/add",
+        `${SERVER_URL}/api/v1/pantry/add`,
         {
           ingredients: pantryList,
         },
