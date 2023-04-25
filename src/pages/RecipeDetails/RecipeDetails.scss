@@ -31,9 +31,8 @@
   border-radius: 12px;
 }
 
-.recipe-details-ingredients > h2 {
+.recipe-details-ingredients > div > h2 {
   color: $secondary-color;
-  width: 100%;
 }
 
 .recipe-details-ingredients {
@@ -43,6 +42,12 @@
   gap: 1rem;
   margin: 4rem 0;
   text-align: justify;
+}
+
+.recipe-details-ingredients-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .recipe-details-ingredient {

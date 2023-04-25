@@ -31,10 +31,18 @@ export const authSlice = createSlice({
         },
         setShoppingList: (state, action) => {
             state.shoppingList = action.payload;
+        },
+        sendIngredientsToShoppingList: (state, action) => {
+            //add each item in the array to the shopping list if it doesn't exist
+            action.payload.forEach(item => {
+                if (!state.shoppingList.some(i => i.id === item.id)) {
+                    state.shoppingList.push(item);
+                }
+            });
         }
     },
 });
 
-export const { setLogin, setLogout, setPantry, setPantryItem, setShoppingList } = authSlice.actions;
+export const { setLogin, setLogout, setPantry, setPantryItem, setShoppingList, sendIngredientsToShoppingList } = authSlice.actions;
 
 export default authSlice.reducer;

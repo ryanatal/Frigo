@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
+import { useSelector, useDispatch } from "react-redux";
+import { sendIngredientsToShoppingList } from "../../state";
 
 import {
   getRecipeInfo,
@@ -16,6 +18,9 @@ export const RecipeDetails = () => {
   const [measurements, setMeasurements] = useState([]);
   const [instructions, setInstructions] = useState([]);
 
+  const dispatch = useDispatch();
+  const shoppingList = useSelector((state) => state.shoppingList);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -27,6 +32,8 @@ export const RecipeDetails = () => {
     getRecipeInstructions(id).then((data) =>
       setInstructions(data)
     );
+    console.log(ingredients);
+    console.log(shoppingList);
   }, [id]);
 
   if (!recipe || !ingredients || !measurements || !instructions) {
@@ -45,10 +52,23 @@ export const RecipeDetails = () => {
               <img src={recipe.image} alt={recipe.title} />
             </div>
             <div className="recipe-details-ingredients">
-              <h2>Ingredients</h2>
+              <div className="recipe-details-ingredients-title-wrapper">
+                <h2>Ingredients</h2>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    console.log(ingredients);
+                    dispatch(sendIngredientsToShoppingList(ingredients));
+                    alert("Ingredients added to shopping list");
+                    console.log(shoppingList);
+                  }}
+                >
+                  Add to shopping list
+                </button>
+              </div>
               {ingredients.map((ingredient, index) => (
                 <div key={index} className="recipe-details-ingredient">
-                  {ingredient}
+                  {ingredient.ingredient}
                 </div>
               ))}
             </div>

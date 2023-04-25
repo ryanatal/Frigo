@@ -110,7 +110,12 @@ export const getRecipeIngredients = async (id) => {
     const response = await axios.get(
       `${BASE_URL}/recipes/${id}/information?apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
     );
-    const ingredients = response.data.extendedIngredients.map((ingredient) => ingredient.name);
+    const ingredients = response.data.extendedIngredients.map((ingredient) => {
+      return {
+        ingredient: ingredient.name,
+        id: ingredient.id,
+      }
+    });
     return ingredients;
   } catch (error) {
     if (error.response.status === 402) {
