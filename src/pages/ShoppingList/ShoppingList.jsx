@@ -47,6 +47,11 @@ export const ShoppingList = () => {
       });
   };
 
+  //save the shopping list even if the user doesn't click the save button
+  useEffect(() => {
+    saveShoppingList();
+  }, [itemsList]);
+
   const removeItem = (selectedItem) => {
     setItemsList(itemsList.filter((item) => item.id !== selectedItem.id));
   };
@@ -108,7 +113,7 @@ export const ShoppingList = () => {
       <div className="card text-white bg-dark shopping-list-items">
         <div className="card-title">
           <h2>Shopping List </h2>
-          <button onClick={saveShoppingList}>Save</button>
+          {/* <button onClick={saveShoppingList}>Save</button> */}
           <div className="search-container">
             <input
               className="search-input"

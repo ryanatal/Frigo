@@ -46,6 +46,10 @@ export const Ingredients2 = () => {
       });
   };
 
+  useEffect(() => {
+    savePantry();
+  }, [selectedPantryIngredients]);
+
   return (
     <>
       <div id="searchContainerIngredients">
@@ -62,7 +66,7 @@ export const Ingredients2 = () => {
           <div className="ingredientCard card">
             <div className="ingredientContent card-body">
               <h4 className="card-title ingredientTitle">Ingredients</h4>
-              <button onClick={savePantry}>Save</button>
+              {/* <button onClick={savePantry}>Save</button> */}
               <ClickableDiv
                 items={ingredientData.filter((ingredient) =>
                   ingredient.ingredient
