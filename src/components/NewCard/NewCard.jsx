@@ -1,25 +1,42 @@
-import React from 'react';
-import './NewCard.scss';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./NewCard.scss";
+import { Link } from "react-router-dom";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export const NewCard = ({ id, image, title, missingIngredients }) => {
-
+export const NewCard = ({
+  id,
+  image,
+  title,
+  readyInMinutes,
+  aggregateLikes,
+  missingIngredients,
+}) => {
   return (
     <div className="container container-recipe">
-          <div className="card card-recipe">
-            <img src={image} className="card-img-top card-img-top-recipe" alt="recipe" />
-            <div className="card-body body-recipe">
-              <h5 className="card-title title-recipe">{title}</h5>
-              <p className="card-text text-recipe">
-                Missing ingredients: {missingIngredients}
-              </p>
-              <Link to={`/recipes/${id}`} className="btn btn-primary button-recipe">
-                Let's Cook!
-              </Link>
-            </div>
-          </div>
+      <div className="card card-recipe">
+        <img
+          src={image}
+          className="card-img-top card-img-top-recipe"
+          alt="recipe"
+        />
+        <div className="card-body body-recipe">
+          <h5 className="card-title title-recipe">{title}</h5>
+          {missingIngredients && (
+            <p className="card-text text-recipe">
+              Missing ingredients: {missingIngredients}
+            </p>
+          )}
+          {readyInMinutes && aggregateLikes && (
+            <p className="card-text text-recipe">
+              ETA: {readyInMinutes}min &nbsp; &nbsp; Likes: {aggregateLikes}
+            </p>
+          )}
+          <Link to={`/recipes/${id}`} className="btn btn-primary button-recipe">
+            Let's Cook!
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

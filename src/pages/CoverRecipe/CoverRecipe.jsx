@@ -50,6 +50,7 @@ export const CoverRecipe = () => {
                         title={recipe.title}
                         readyInMinutes={recipe.readyInMinutes}
                         aggregateLikes={recipe.aggregateLikes}
+                        missingIngredients={null}
                     />
                 ))}
             </div>
