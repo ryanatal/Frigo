@@ -44,6 +44,15 @@
   text-align: justify;
 }
 
+.recipe-details-ingredients-btn {
+  background-color: $button;
+  border: none;
+}
+
+.recipe-details-ingredients-btn:hover {
+  background-color: $hover;
+}
+
 .recipe-details-ingredients-title-wrapper {
   width: 100%;
   display: flex;

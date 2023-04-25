@@ -55,7 +55,7 @@ export const RecipeDetails = () => {
               <div className="recipe-details-ingredients-title-wrapper">
                 <h2>Ingredients</h2>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary recipe-details-ingredients-btn"
                   onClick={() => {
                     console.log(ingredients);
                     dispatch(sendIngredientsToShoppingList(ingredients));
