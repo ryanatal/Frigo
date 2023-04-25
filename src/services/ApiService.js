@@ -4,13 +4,13 @@ const BASE_URL = "https://api.spoonacular.com";
 
 const REACT_APP_SPOONACULAR_API_KEY = 
   [
-    "a5d3501482ba4254a0c113e6c551b9e1",
-    "528b5885a5424734ac96e5c033ca8b45",
     "cfe2f9b416d04a718497f7ea43c738e6",
     "bae4e19f228346cab3f2a7059792bcfe",
     "247b86e100314847b22afc74965cf2b2",
     "627845b7b82e4414b7ea33f63b32e088",
-    "ce817a97478d4035991a4d594d987cd9"
+    "ce817a97478d4035991a4d594d987cd9",
+    "a5d3501482ba4254a0c113e6c551b9e1",
+    "528b5885a5424734ac96e5c033ca8b45",
   ];
 
 let currentKeyIndex = 0;
@@ -39,7 +39,7 @@ export const getRandomRecipes = async (number) => {
 export const getRecipesByIngredients = async (ingredients, number = 5) => {
   try {
     const response = await axios.get(
-      `${BASE_URL}/recipes/findByIngredients?ingredients=${ingredients}&number=${number}&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
+      `${BASE_URL}/recipes/findByIngredients?ingredients=${ingredients}&number=${number}&ranking=1&sort=min-missing-ingredients&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
     );
     console.log(response.data + "API");
     return response.data;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const NewCard = ({ id, image, title, readyInMinutes, aggregateLikes }) => {
+export const NewCard = ({ id, image, title, missingIngredients }) => {
 
   return (
     <div className="container container-recipe">
@@ -13,7 +13,7 @@ export const NewCard = ({ id, image, title, readyInMinutes, aggregateLikes }) =>
             <div className="card-body body-recipe">
               <h5 className="card-title title-recipe">{title}</h5>
               <p className="card-text text-recipe">
-                ETA: {readyInMinutes}min &nbsp; &nbsp; Likes: {aggregateLikes}
+                Missing ingredients: {missingIngredients}
               </p>
               <Link to={`/recipes/${id}`} className="btn btn-primary button-recipe">
                 Let's Cook!

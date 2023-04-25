@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Loader } from "../Loader/Loader";
 
 import {
   getRecipeInfo,
@@ -28,7 +29,9 @@ export const RecipeDetails = () => {
     );
   }, [id]);
 
-  if (!recipe) return null;
+  if (!recipe || !ingredients || !measurements || !instructions) {
+    return <Loader />;
+  }
 
   return (
     <>

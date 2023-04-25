@@ -7,7 +7,7 @@ import { setShoppingList, setPantryItem } from "../../state";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { SERVER_URL } from "../../constants/constants";
-
+import { Loader } from "../Loader/Loader";
 
 export const ShoppingList = () => {
 
@@ -82,9 +82,9 @@ export const ShoppingList = () => {
   const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
 
   if (!ingredients) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
-
+  
   return (
     <div className="shopping-list card-deck">
       <div className="card text-white bg-dark shopping-ingredients">

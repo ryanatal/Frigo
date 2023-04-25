@@ -3,12 +3,13 @@ import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 import NewCard from "../../components/NewCard/NewCard";
 import { getRandomRecipes, getRecipesByIngredients, searchRecipes } from "../../services/ApiService";
-import { PantryIngredientsSelectedContext } from "../../PantryIngredientsSelectedContext";
+import { useSelector } from "react-redux";
+import { Loader } from "../Loader/Loader";
 
 export const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const { selectedPantryIngredients } = useContext(PantryIngredientsSelectedContext);
+  const selectedPantryIngredients = useSelector((state) => state.pantry);
 
   useEffect(() => {
     if (searchInput && selectedPantryIngredients.length > 0) {
@@ -33,6 +34,7 @@ export const Recipes = () => {
       getRecipesByIngredients(selectedPantryIngredients.map(ingredientObj => ingredientObj.ingredient).join(",")).then(
         (response) => {
           setRecipes(response);
+          console.log(response);
         }
       );
     }else {
@@ -42,6 +44,10 @@ export const Recipes = () => {
       })
     }
   }, [searchInput, selectedPantryIngredients]);
+
+  if (recipes.length === 0) {
+    return <Loader />;
+  }
 
   return (
     <div id="main">
@@ -64,8 +70,7 @@ export const Recipes = () => {
                 id={recipe.id}
                 image={recipe.image}
                 title={recipe.title}
-                readyInMinutes={recipe.readyInMinutes}
-                aggregateLikes={recipe.aggregateLikes}
+                missingIngredients={recipe.missedIngredientCount}
               />
             </div>
           ))}
