@@ -24,7 +24,10 @@ export const authSlice = createSlice({
             state.pantry = action.payload;
         },
         setPantryItem: (state, action) => {
-            state.pantry.push(action.payload);
+            //add item to pantry if it doesn't exist
+            if (!state.pantry.some(item => item.id === action.payload.id)) {
+                state.pantry.push(action.payload);
+            }
         },
         setShoppingList: (state, action) => {
             state.shoppingList = action.payload;
