@@ -7,7 +7,6 @@ import { setShoppingList, setPantryItem } from "../../state";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { SERVER_URL } from "../../constants/constants";
-import { Loader } from "../Loader/Loader";
 
 export const ShoppingList = () => {
 
@@ -15,29 +14,31 @@ export const ShoppingList = () => {
   //Bearer token 
   const token = useSelector((state) => state.token);
   const shoppinglist = useSelector((state) => state.shoppingList);
-
   const [itemsList, setItemsList] = useState(shoppinglist);
+  const [ingredients, setIngredients] = useState(null);
+  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
+  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
 
   useEffect(() => {
     getIngredients().then((ingredients) => {
       setIngredients(ingredients);
-    });
-    axios.get(`${SERVER_URL}/api/v1/shoppinglist/get`,{
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((res) => {
-      console.log("items:" + res.data.length);
-      setItemsList(res.data.items);
-      dispatch(setShoppingList(itemsList));
-    });
+    })
   }, []);
 
   // useEffect(() => {
-  //   console.log("initial shopping list: " + shoppinglist);
-  //   setItemsList(...itemsList, shoppinglist);
-  //   console.log(itemsList)
-  // }, []);
+  //   axios.get(`${SERVER_URL}/api/v1/shoppinglist/get`,{
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   }).then((res) => {
+  //     setItemsList(res.data);
+  //     console.log(res.data.length);
+  //   });
+  // }, [token]);
+
+  useEffect(() => {
+    setItemsList(shoppinglist);
+  }, []);
 
   const saveShoppingList = () => {
     axios
@@ -53,7 +54,6 @@ export const ShoppingList = () => {
         }
       )
       .then((res) => {
-        console.log("saved: " + res.data.items);
         dispatch(setShoppingList(itemsList));
       });
   };
@@ -79,22 +79,14 @@ export const ShoppingList = () => {
         },
       })
       .then((res) => {
-        console.log("saved: " + res.data);
         dispatch(setPantryItem(item));
         removeItem(item);
       });
 
   }
-
-  const [ingredients, setIngredients] = useState(null);
-  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
-  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
-
-  if (!ingredients) {
-    return <Loader />;
-  }
   
   return (
+    ingredients &&
     <div className="shopping-list card-deck">
       <div className="card text-white bg-dark shopping-ingredients">
         <div className="card-title">
