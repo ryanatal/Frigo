@@ -22,6 +22,15 @@ export const ShoppingList = () => {
     getIngredients().then((ingredients) => {
       setIngredients(ingredients);
     });
+    axios.get(`${SERVER_URL}/api/v1/shoppinglist/get`,{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => {
+      console.log("items:" + res.data.length)
+      //merge res.data.items with shopping list from redux
+      dispatch(setShoppingList(res.data.items));
+    });
   }, []);
 
   useEffect(() => {
