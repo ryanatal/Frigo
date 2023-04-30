@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { setPantry } from "../../state";
 import axios from "axios";
 import { SERVER_URL } from "../../constants/constants";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Pantry = () => {
 
@@ -107,7 +109,16 @@ const Pantry = () => {
               {item.ingredient}
               <div className="shopping-btns-wrapper">
                 <button
-                  onClick={() => removeItem(item)}
+                  onClick={() => {
+                    removeItem(item)
+                    toast.success(`${item.ingredient} removed from pantry!`, {
+                      position: "bottom-right",
+                      autoClose: 2500,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      theme: "dark"
+                    });
+                  }}
                   className="btn btn-danger"
                 >
                   Remove

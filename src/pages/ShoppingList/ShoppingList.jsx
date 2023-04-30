@@ -163,7 +163,7 @@ export const ShoppingList = () => {
                   <button
                     onClick={() => {
                       removeItem(item)
-                      toast.success("Item removed from list", {
+                      toast.success(`${item.ingredient} removed from list`, {
                         position: "bottom-right",
                         autoClose: 2500,
                         hideProgressBar: false,
