@@ -14,6 +14,8 @@ import CoverPage from "./pages/CoverPage/CoverPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Pantry from "./pages/Pantry/Pantry";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
@@ -42,6 +44,7 @@ function App() {
           <Route path="/ingredients" element={isAuth ? <Pantry /> : <Navigate to="/" /> } />
         </Routes>
       </div>
+      <ToastContainer />
     </Router>
     {/* </PantryIngredientsSelectedContext.Provider>
     </IngredientsSelectedContext.Provider> */}
