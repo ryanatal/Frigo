@@ -27,17 +27,17 @@ export const ShoppingList = () => {
         Authorization: `Bearer ${token}`,
       },
     }).then((res) => {
-      console.log("items:" + res.data.length)
-      //merge res.data.items with shopping list from redux
-      dispatch(setShoppingList(res.data.items));
+      console.log("items:" + res.data.length);
+      setItemsList(res.data.items);
+      dispatch(setShoppingList(itemsList));
     });
   }, []);
 
-  useEffect(() => {
-    console.log("initial shopping list: " + shoppinglist);
-    setItemsList(shoppinglist);
-    console.log(itemsList)
-  }, []);
+  // useEffect(() => {
+  //   console.log("initial shopping list: " + shoppinglist);
+  //   setItemsList(...itemsList, shoppinglist);
+  //   console.log(itemsList)
+  // }, []);
 
   const saveShoppingList = () => {
     axios
