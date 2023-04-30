@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { sendIngredientsToShoppingList } from "../../state";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import {
@@ -67,6 +67,7 @@ export const RecipeDetails = () => {
                       autoClose: 2500,
                       hideProgressBar: false,
                       closeOnClick: true,
+                      theme: "dark"
                     });
                   }}
                 >

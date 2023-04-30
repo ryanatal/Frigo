@@ -7,6 +7,8 @@ import { setShoppingList, setPantryItem } from "../../state";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { SERVER_URL } from "../../constants/constants";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ShoppingList = () => {
 
@@ -134,13 +136,41 @@ export const ShoppingList = () => {
                 {item.ingredient}
                 <div className="shopping-btns-wrapper">
                   <button
-                    onClick={() => sendToPantry(item)}
+                    onClick={() => {
+                      try {
+                        sendToPantry(item);
+                        toast.success("Item sent to pantry", {
+                          position: "bottom-right",
+                          autoClose: 2500,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          theme: "dark"
+                        })
+                      } catch (err) {
+                        toast.error("Item failed to be sent to pantry", {
+                          position: "bottom-right",
+                          autoClose: 2500,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          theme: "dark"
+                        })
+                      }
+                    }}
                     className="btn btn-primary"
                   >
                     Got it
                   </button>
                   <button
-                    onClick={() => removeItem(item)}
+                    onClick={() => {
+                      removeItem(item)
+                      toast.success("Item removed from list", {
+                        position: "bottom-right",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        theme: "dark"
+                      })
+                    }}
                     className="btn btn-danger"
                   >
                     Remove
