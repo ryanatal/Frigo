@@ -16,6 +16,8 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Pantry from "./pages/Pantry/Pantry";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Bot from "./components/Bot/Bot";
+import BotButton from "./components/BotButton/BotButton";
 
 function App() {
 
@@ -42,7 +44,9 @@ function App() {
           <Route path="landing" element={isAuth ? <LandingPage /> : <Navigate to="/" /> } />
           <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/" /> } />
           <Route path="/ingredients" element={isAuth ? <Pantry /> : <Navigate to="/" /> } />
+          
         </Routes>
+        <BotButton />
       </div>
       <ToastContainer />
     </Router>

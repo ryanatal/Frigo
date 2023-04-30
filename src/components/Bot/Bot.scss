@@ -1,0 +1,21 @@
+.bot-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cs-button--attachment{
+    display: none !important;
+}
+
+.cs-message-input__content-editor-wrapper{
+    margin-left: 4px !important;
+}
+
+.chatbot-container{
+    position: fixed; 
+    height: 70vh; 
+    width: 40vw;
+    bottom: 0;
+    right: 5vw;
+}
