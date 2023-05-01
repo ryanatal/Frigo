@@ -6,7 +6,7 @@ import { MainContainer, ChatContainer, MessageList, Message, MessageInput, Typin
 const API_KEY = "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"; // Took your key perla/ryan sorryy :D
 
 const systemMessage = { //  Change this here to whatever you want frigobot to talk like. Explain like xxx
-  "role": "system", "content": "Explain things like your a Chef teaching students"
+  "role": "system", "content": "Explain things like you're a Chef teaching students"
 }
 
 function Bot() {
