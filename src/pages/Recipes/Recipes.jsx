@@ -45,10 +45,6 @@ export const Recipes = () => {
     }
   }, [searchInput, selectedPantryIngredients]);
 
-  if (recipes.length === 0) {
-    return <Loader />;
-  }
-
   return (
     <div id="main">
       <div id="searchContainerRecipe">
@@ -60,20 +56,23 @@ export const Recipes = () => {
           onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
-
       <div id="slider">
         <div className="sliderContent">
-          {recipes.map((recipe) => (
-            <div className="recipeCard">
-              <NewCard
-                key={recipe.id}
-                id={recipe.id}
-                image={recipe.image}
-                title={recipe.title}
-                missingIngredients={recipe.missedIngredientCount}
-              />
-            </div>
-          ))}
+          {recipes.length === 0 ? (
+            <Loader />
+          ) : (
+            recipes.map((recipe) => (
+              <div className="recipeCard">
+                <NewCard
+                  key={recipe.id}
+                  id={recipe.id}
+                  image={recipe.image}
+                  title={recipe.title}
+                  missingIngredients={recipe.missedIngredientCount}
+                />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
