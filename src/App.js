@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 
 import Header1 from "./components/Header1/Header1";
@@ -16,8 +17,6 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Pantry from "./pages/Pantry/Pantry";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Bot from "./components/Bot/Bot";
-import BotButton from "./components/BotButton/BotButton";
 import { DietSelectedContext } from "./DietSelectedContext";
 
 function App() {
@@ -49,7 +48,6 @@ function App() {
           <Route path="/ingredients" element={isAuth ? <Pantry /> : <Navigate to="/" /> } />
           
         </Routes>
-        <BotButton />
       </div>
       <ToastContainer />
     </Router>
