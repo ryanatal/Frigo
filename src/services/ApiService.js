@@ -156,3 +156,8 @@ export const getIngredients = async () => {
   const module = await import("../data/ingredients.js");
   return module.ingredients;
 }
+
+export const getDiets = async () => {
+  const module = await import("../data/diets.js");
+  return module.diets;
+}

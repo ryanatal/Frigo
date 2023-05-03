@@ -92,7 +92,11 @@
   display: flex;
   padding: 20px 0;
   justify-content: center;
-  align-items: center; 
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  flex-wrap:  nowrap;
+  width: fit-content !important;
+  gap: 10px;
 }
 
 // ingredient card
@@ -102,8 +106,19 @@
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
-    width: 100vh !important;
-    height: 22em;
+    width: 70vw !important;
+    height: 50vh;
+    overflow-y:hidden ;
+  }
+
+  .dietCard{
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    width: 40vw !important;
+    height: 50vh;
     overflow-y:hidden ;
   }
 
@@ -164,6 +179,10 @@
     height: max-content !important;
   }
 
+  .dietCard{
+    width: 60vh !important;
+    height: max-content !important;
+  }
 
   #searchContainerIngredients {
     width: 90%;
@@ -180,6 +199,11 @@
 
     .ingredientCard {
       width: 80vh !important;
+      height: 80vh !important;
+    }
+
+    .dietCard{
+      width: 60vh !important;
       height: 80vh !important;
     }
 
