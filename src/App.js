@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -16,13 +16,15 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Pantry from "./pages/Pantry/Pantry";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Bot from "./components/Bot/Bot";
+// import Bot from "./components/Bot/Bot";
 import BotButton from "./components/BotButton/BotButton";
+import { DietSelectedContext } from "./DietSelectedContext";
 
 function App() {
 
   // const [selectedIngredients, setSelectedIngredients] = useState([]);
   // const [selectedPantryIngredients, setSelectedPantryIngredients] = useState([]);
+  const [selectedDiet, setSelectedDiets] = useState([]);
 
   const isAuth = Boolean(useSelector((state) => state.token));
 
@@ -30,6 +32,7 @@ function App() {
     <>
     {/* <IngredientsSelectedContext.Provider value={{selectedIngredients, setSelectedIngredients}}>
     <PantryIngredientsSelectedContext.Provider value={{selectedPantryIngredients, setSelectedPantryIngredients}}> */}
+    <DietSelectedContext.Provider value={{selectedDiet, setSelectedDiets}}>
     <Router>
       <div className="App">
       <Header1 />
@@ -50,6 +53,7 @@ function App() {
       </div>
       <ToastContainer />
     </Router>
+    </DietSelectedContext.Provider>
     {/* </PantryIngredientsSelectedContext.Provider>
     </IngredientsSelectedContext.Provider> */}
     </>

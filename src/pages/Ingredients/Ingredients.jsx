@@ -1,5 +1,5 @@
 import { getIngredients, getDiets } from "../../services/ApiService";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ClickableDiv } from "../../components/ClickableDiv/ClickableDiv";
 import { ClickableDiv2 } from "../../components/ClickableDiv/ClickableDiv2";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,14 +7,18 @@ import { setPantry } from "../../state";
 import axios from "axios";
 import "./Ingredients.scss";
 import { SERVER_URL } from "../../constants/constants";
+import { DietSelectedContext } from "../../DietSelectedContext";
 
 
 export const Ingredients2 = () => {
+  const { selectedDiet, setSelectedDiets } = useContext(
+    DietSelectedContext
+  );
+
   const [ingredientData, setIngredientData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const [diets, setDiets] = useState([]);
-  const [selectedDiets, setSelectedDiets] = useState([]);
 
   const token = useSelector((state) => state.token);
   const dispatch = useDispatch();
@@ -31,7 +35,12 @@ export const Ingredients2 = () => {
     getDiets().then((diets) => {
       setDiets(diets);
     });
-  }, []);
+  });
+
+  // console log each diet 
+  useEffect(() => {
+    console.log(selectedDiet);
+}, [selectedDiet]);
 
   useEffect(() => {
     console.log("initial pantry: " + pantry);
@@ -95,7 +104,7 @@ export const Ingredients2 = () => {
               <h4 className="card-title ingredientTitle">Diets:</h4>
               <ClickableDiv2
                 items={diets}
-                selectedItems={selectedDiets}
+                selectedItems={selectedDiet}
                 setSelectedItems={setSelectedDiets}
               />
             </div>

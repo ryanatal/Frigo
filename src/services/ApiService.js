@@ -67,6 +67,26 @@ export const searchRecipes = async (query, number = 5) => {
   }
 };
 
+export const searchRecipesByDiet = async (diet, number = 5) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/recipes/complexSearch?diet=${diet}&number=${number}&addRecipeInformation=true&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
+    );
+    console.log("SEARCHED BY DIETS");
+    if (Array.isArray(response.data.results)) {
+      return response.data.results;
+    } else {
+      console.log("No results found" + response.data.results);
+    }
+  } catch (error) {
+    if (error.response.status === 402) {
+      getNextApiKey();
+      return searchRecipesByDiet(diet, number);
+    }
+    console.log(error);
+  }
+};
+
 //#endregion recipes
 
 //#region Recipe Details;
