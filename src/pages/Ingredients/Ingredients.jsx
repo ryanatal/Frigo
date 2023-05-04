@@ -8,6 +8,7 @@ import axios from "axios";
 import "./Ingredients.scss";
 import { SERVER_URL } from "../../constants/constants";
 import { DietSelectedContext } from "../../DietSelectedContext";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 
 export const Ingredients2 = () => {
@@ -71,6 +72,14 @@ export const Ingredients2 = () => {
     savePantry();
   }, [selectedPantryIngredients]);
   
+  const scrollLeft = () => {
+    document.getElementById("sliderIngredient").scrollLeft -= 1000;
+  };
+
+  const scrollRight = () => {
+    document.getElementById("sliderIngredient").scrollLeft += 1000;
+  };
+
   return (
     <>
       <div id="searchContainerIngredients">
@@ -86,7 +95,7 @@ export const Ingredients2 = () => {
         <div className="card-deck">
           <div className="ingredientCard card">
             <div className="ingredientContent card-body">
-              <h4 className="card-title ingredientTitle">Ingredients</h4>
+              <h4 className="card-title ingredientTitle">Ingredients <FaArrowRight onClick={scrollRight} /></h4>
               {/* <button onClick={savePantry}>Save</button> */}
               <ClickableDiv
                 items={ingredientData.filter((ingredient) =>
@@ -101,7 +110,7 @@ export const Ingredients2 = () => {
           </div>
           <div className="dietCard card">
             <div className="ingredientContent card-body">
-              <h4 className="card-title ingredientTitle">Diets:</h4>
+              <h4 className="card-title ingredientTitle"><FaArrowLeft onClick={scrollLeft} /> Diets:</h4>
               <ClickableDiv2
                 items={diets}
                 selectedItems={selectedDiet}
