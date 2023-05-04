@@ -3,14 +3,16 @@ import Bot from '../Bot/Bot';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./BotButton.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
 function BotButton() {
     const [showBot, setShowBot] = useState(false);
     
     return (
         <>
-            <Button variant="success" onClick={() => setShowBot(true)} style={{position: 'fixed', bottom: 0, right: 0, backgroundColor: "#de1f1f", borderColor: "#de1f1f"}}>
-                Show Bot
+            <Button variant="success" className='bot-button-design' onClick={() => setShowBot(true)}>
+                <FontAwesomeIcon icon={faCommentDots} />
             </Button>
             <Modal show={showBot} onHide={() => setShowBot(false)}>
                 <Modal.Header closeButton>

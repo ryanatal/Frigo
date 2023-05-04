@@ -1,0 +1,19 @@
+.bot-button-design{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #de1f1f;
+    border-color: #de1f1f;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.bot-button-design:hover{
+    background-color: #650f0f;
+    border-color: #650f0f;
+}
+
+.bot-button-design:focus{
+    background-color: #650f0f;
+    border-color: #650f0f;
+}
