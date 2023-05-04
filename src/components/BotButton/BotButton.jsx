@@ -9,7 +9,7 @@ function BotButton() {
     
     return (
         <>
-            <Button variant="success" onClick={() => setShowBot(true)} style={{position: 'fixed', bottom: 0, right: 0}}>
+            <Button variant="success" onClick={() => setShowBot(true)} style={{position: 'fixed', bottom: 0, right: 0, backgroundColor: "#de1f1f", borderColor: "#de1f1f"}}>
                 Show Bot
             </Button>
             <Modal show={showBot} onHide={() => setShowBot(false)}>
