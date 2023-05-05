@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 import NewCard from "../../components/NewCard/NewCard";
-import { getRandomRecipes, getRecipesByIngredients, searchRecipes, searchRecipesByDiet } from "../../services/ApiService";
+import { getRandomRecipes, getRecipesByIngredients, searchRecipes, searchRecipesByDiet, searchRecipesByIngredientsAndDiet } from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { Loader } from "../Loader/Loader";
 import { DietSelectedContext } from "../../DietSelectedContext";
@@ -14,10 +14,13 @@ export const Recipes = () => {
 
   const { selectedDiet } = useContext(DietSelectedContext);
 
+  function areRecipesEqual(recipe1, recipe2) {
+    return recipe1.id === recipe2.id;
+  }
 
 useEffect(() => {
   console.log("USE EFFECT" + selectedDiet);
-  if (searchInput && selectedPantryIngredients.length > 0 && selectedDiet) {
+  if (searchInput && selectedPantryIngredients.length > 0 && selectedDiet.length > 0) {
     // search for recipes by name, ingredients, and diet
     Promise.all([
       getRecipesByIngredients(selectedPantryIngredients.map(ingredientObj => ingredientObj.ingredient).join(",")),
@@ -30,7 +33,7 @@ useEffect(() => {
       );
       setRecipes(filteredResults);
     });
-  } else if (searchInput && selectedDiet) {
+  } else if (searchInput && selectedDiet.length > 0) {
     // search for recipes by name and diet
     Promise.all([
       searchRecipes(searchInput),
@@ -42,14 +45,15 @@ useEffect(() => {
       );
       setRecipes(filteredResults);
     });
-  } else if (selectedPantryIngredients.length > 0 && selectedDiet) {
+  } else if (selectedPantryIngredients.length > 0 && selectedDiet.length > 0) {
     // search for recipes by ingredients and diet
     Promise.all([
-      getRecipesByIngredients(selectedPantryIngredients.map(ingredientObj => ingredientObj.ingredient).join(",")),
-      searchRecipesByDiet(selectedDiet.map(dietObj => dietObj.diet).join(",")),
-    ]).then(([ingredientsResults, dietResults]) => {
-      const combinedResults = [...ingredientsResults, ...dietResults];
-      setRecipes(combinedResults);
+      searchRecipesByIngredientsAndDiet(
+        selectedPantryIngredients.map(ingredientObj => ingredientObj.ingredient).join(","),
+        selectedDiet.map(dietObj => dietObj.diet).join(",")
+      )    ]).then(([Results]) => {
+      console.log(Results);
+      setRecipes(Results);
     });
   } else if (searchInput && selectedPantryIngredients.length > 0) {
     // search for recipes by name and ingredients
@@ -69,11 +73,11 @@ useEffect(() => {
       setRecipes(response);
     });
     
-  } else if (selectedDiet) {
+  } else if (selectedDiet.length > 0) {
     // search for recipes by diet
     searchRecipesByDiet(selectedDiet.map(dietObj => dietObj.diet).join(","))
     .then((response) => {
-      console.log(selectedDiet.map(dietObj => dietObj.diet).join(","));
+      console.log(response);
       setRecipes(response);
     });
   } else if (selectedPantryIngredients.length > 0) {
@@ -88,6 +92,7 @@ useEffect(() => {
     // get random recipes
     getRandomRecipes(5).then((response) => {
       setRecipes(response);
+      console.log(response);
     })
   }
 }, [searchInput, selectedPantryIngredients, selectedDiet]);

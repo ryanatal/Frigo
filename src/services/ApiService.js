@@ -87,6 +87,24 @@ export const searchRecipesByDiet = async (diet, number = 5) => {
   }
 };
 
+export const searchRecipesByIngredientsAndDiet = async (ingredients, diet, number = 5) => {
+  try {
+    const ingredientsString = ingredients.replace(/\s+/g, ''); // remove spaces from ingredient names
+    const dietString = diet.replace(/\s+/g, '');
+    const response = await axios.get(
+      `${BASE_URL}/recipes/complexSearch?includeIngredients=${ingredientsString}&diet=${dietString}&number=${number}&addRecipeInformation=true&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
+    );
+    console.log(response.data + "API");
+    return response.data.results;
+  } catch (error) {
+    if (error.response.status === 402) {
+      getNextApiKey();
+      return searchRecipesByIngredientsAndDiet(ingredients, diet, number);
+    }
+    console.log(error);
+  }
+};
+
 //#endregion recipes
 
 //#region Recipe Details;
