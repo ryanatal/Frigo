@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Recipes.scss";
 import "../CoverRecipe/CoverRecipe.scss";
 import NewCard from "../../components/NewCard/NewCard";
-import { getRandomRecipes, getRecipesByIngredients, searchRecipes, searchRecipesByDiet, searchRecipesByIngredientsAndDiet } from "../../services/ApiService";
+import { getRandomRecipes, getRecipesByIngredients, searchRecipes, searchRecipesByDiet, searchRecipesByIngredientsAndDiet, searchRecipesByNameIngredientsAndDiet } from "../../services/ApiService";
 import { useSelector } from "react-redux";
 import { Loader } from "../Loader/Loader";
 import { DietSelectedContext } from "../../DietSelectedContext";
@@ -14,24 +14,16 @@ export const Recipes = () => {
 
   const { selectedDiet } = useContext(DietSelectedContext);
 
-  function areRecipesEqual(recipe1, recipe2) {
-    return recipe1.id === recipe2.id;
-  }
-
 useEffect(() => {
   console.log("USE EFFECT" + selectedDiet);
   if (searchInput && selectedPantryIngredients.length > 0 && selectedDiet.length > 0) {
     // search for recipes by name, ingredients, and diet
-    Promise.all([
-      getRecipesByIngredients(selectedPantryIngredients.map(ingredientObj => ingredientObj.ingredient).join(",")),
-      searchRecipes(searchInput),
-      searchRecipesByDiet(selectedDiet.map(dietObj => dietObj.diet).join(",")),
-    ]).then(([ingredientsResults, searchResults, dietResults]) => {
-      const combinedResults = [...ingredientsResults, ...searchResults, ...dietResults];
-      const filteredResults = combinedResults.filter((recipe) =>
-        recipe.title.toLowerCase().includes(searchInput.toLowerCase())
-      );
-      setRecipes(filteredResults);
+    searchRecipesByNameIngredientsAndDiet(
+      searchInput,
+      selectedPantryIngredients.map(ingredientObj => ingredientObj.ingredient).join(","),
+      selectedDiet.map(dietObj => dietObj.diet).join(",")
+    ).then((results) => {
+      setRecipes(results);
     });
   } else if (searchInput && selectedDiet.length > 0) {
     // search for recipes by name and diet

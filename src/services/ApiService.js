@@ -94,12 +94,28 @@ export const searchRecipesByIngredientsAndDiet = async (ingredients, diet, numbe
     const response = await axios.get(
       `${BASE_URL}/recipes/complexSearch?includeIngredients=${ingredientsString}&diet=${dietString}&number=${number}&addRecipeInformation=true&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
     );
-    console.log(response.data + "API");
     return response.data.results;
   } catch (error) {
     if (error.response.status === 402) {
       getNextApiKey();
       return searchRecipesByIngredientsAndDiet(ingredients, diet, number);
+    }
+    console.log(error);
+  }
+};
+
+export const searchRecipesByNameIngredientsAndDiet = async (query, ingredients, diet, number = 5) => {
+  try {
+    const dietString = diet.replace(/\s+/g, '');
+    const ingredientsString = ingredients.replace(/\s+/g, ''); // remove spaces from ingredient names
+    const response = await axios.get(
+      `${BASE_URL}/recipes/complexSearch?query=${query}&includeIngredients=${ingredientsString}&diet=${dietString}&number=${number}&addRecipeInformation=true&apiKey=${REACT_APP_SPOONACULAR_API_KEY[currentKeyIndex]}`
+    );
+    return response.data.results;
+  } catch (error) {
+    if (error.response.status === 402) {
+      getNextApiKey();
+      return searchRecipesByNameIngredientsAndDiet(query, ingredients, diet, number);
     }
     console.log(error);
   }
