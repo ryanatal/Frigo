@@ -30,13 +30,7 @@ export const authSlice = createSlice({
             }
         },
         setShoppingList: (state, action) => {
-            //add items to shopping list if they don't exist
-            action.payload.forEach(item => {
-                if (!state.shoppingList.some(i => i.id === item.id)) {
-                    state.shoppingList.push(item);
-                }
-            }
-            );
+            state.shoppingList = action.payload;
         },
         sendIngredientsToShoppingList: (state, action) => {
             //add each item in the array to the shopping list if it doesn't exist

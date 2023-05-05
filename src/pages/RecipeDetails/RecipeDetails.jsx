@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { sendIngredientsToShoppingList } from "../../state";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   getRecipeInfo,
@@ -59,8 +61,14 @@ export const RecipeDetails = () => {
                   onClick={() => {
                     console.log(ingredients);
                     dispatch(sendIngredientsToShoppingList(ingredients));
-                    alert("Ingredients added to shopping list");
-                    console.log(shoppingList);
+                    //add an info toast
+                    toast.info("Ingredients added to shopping list", {
+                      position: "top-center",
+                      autoClose: 2500,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      theme: "dark"
+                    });
                   }}
                 >
                   Add to shopping list

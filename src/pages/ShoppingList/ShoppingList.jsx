@@ -7,7 +7,8 @@ import { setShoppingList, setPantryItem } from "../../state";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { SERVER_URL } from "../../constants/constants";
-import { Loader } from "../Loader/Loader";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ShoppingList = () => {
 
@@ -15,28 +16,30 @@ export const ShoppingList = () => {
   //Bearer token 
   const token = useSelector((state) => state.token);
   const shoppinglist = useSelector((state) => state.shoppingList);
-
   const [itemsList, setItemsList] = useState(shoppinglist);
+  const [ingredients, setIngredients] = useState(null);
+  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
+  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
 
   useEffect(() => {
     getIngredients().then((ingredients) => {
       setIngredients(ingredients);
-    });
-    axios.get(`${SERVER_URL}/api/v1/shoppinglist/get`,{
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((res) => {
-      console.log("items:" + res.data.length)
-      //merge res.data.items with shopping list from redux
-      dispatch(setShoppingList(res.data.items));
-    });
+    })
   }, []);
 
+  // useEffect(() => {
+  //   axios.get(`${SERVER_URL}/api/v1/shoppinglist/get`,{
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   }).then((res) => {
+  //     setItemsList(res.data);
+  //     console.log(res.data.length);
+  //   });
+  // }, [token]);
+
   useEffect(() => {
-    console.log("initial shopping list: " + shoppinglist);
     setItemsList(shoppinglist);
-    console.log(itemsList)
   }, []);
 
   const saveShoppingList = () => {
@@ -53,7 +56,6 @@ export const ShoppingList = () => {
         }
       )
       .then((res) => {
-        console.log("saved: " + res.data.items);
         dispatch(setShoppingList(itemsList));
       });
   };
@@ -79,22 +81,14 @@ export const ShoppingList = () => {
         },
       })
       .then((res) => {
-        console.log("saved: " + res.data);
         dispatch(setPantryItem(item));
         removeItem(item);
       });
 
   }
-
-  const [ingredients, setIngredients] = useState(null);
-  const [ingredientSearchQuery, setIngredientSearchQuery] = useState("");
-  const [shoppingListSearchQuery, setShoppingListSearchQuery] = useState("");
-
-  if (!ingredients) {
-    return <Loader />;
-  }
   
   return (
+    ingredients &&
     <div className="shopping-list card-deck">
       <div className="card text-white bg-dark shopping-ingredients">
         <div className="card-title">
@@ -142,13 +136,41 @@ export const ShoppingList = () => {
                 {item.ingredient}
                 <div className="shopping-btns-wrapper">
                   <button
-                    onClick={() => sendToPantry(item)}
+                    onClick={() => {
+                      try {
+                        sendToPantry(item);
+                        toast.success("Item sent to pantry", {
+                          position: "bottom-right",
+                          autoClose: 2500,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          theme: "dark"
+                        })
+                      } catch (err) {
+                        toast.error("Item failed to be sent to pantry", {
+                          position: "bottom-right",
+                          autoClose: 2500,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          theme: "dark"
+                        })
+                      }
+                    }}
                     className="btn btn-primary"
                   >
                     Got it
                   </button>
                   <button
-                    onClick={() => removeItem(item)}
+                    onClick={() => {
+                      removeItem(item)
+                      toast.success(`${item.ingredient} removed from list`, {
+                        position: "bottom-right",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        theme: "dark"
+                      })
+                    }}
                     className="btn btn-danger"
                   >
                     Remove
