@@ -51,6 +51,11 @@
     background-color: $about-us-image;
 }
 
+.team-member a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .team-member h3 {
     margin-top: 10px;
     font-size: 1rem; /* adjust font-size */
