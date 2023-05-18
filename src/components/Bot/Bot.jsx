@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = "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";
+const API_KEY = "sk-NOT8pLIegofugAyoztHTT" + "3BlbkFJ73e3CQ0U5Lu72dMR2E6V";
 
 const systemMessage = { //  Change this here to whatever you want frigobot to talk like. Explain like xxx
   "role": "system", "content": "Explain things like you're a Chef teaching students"
