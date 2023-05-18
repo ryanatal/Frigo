@@ -1,9 +1,5 @@
 export const diets =[
     {
-        diet: "Gluten Free",
-        id: 1
-    },
-    {
         diet: "Ketogenic",
         id: 2
     },
